@@ -756,3 +756,31 @@ a:hover {
     margin-top: 10px; /* مسافة بين زر البحث والعناصر الأخرى */
   }
 }
+/* تنسيق الهيدر للجوال */
+@media (max-width: 768px) {
+  header {
+    display: flex; /* جعل العناصر في الهيدر أفقية */
+    justify-content: space-between; /* توزيع العناصر بالتساوي */
+    align-items: center; /* محاذاة العناصر في الوسط عموديًا */
+    padding: 10px; /* إضافة مساحة داخلية */
+  }
+
+  nav {
+    display: flex; /* ترتيب الروابط بشكل أفقي */
+    flex-direction: row; /* التأكيد على الترتيب الأفقي */
+    gap: 15px; /* مسافة بين الروابط */
+  }
+
+  nav a {
+    font-size: 16px; /* حجم النصوص */
+    text-align: center; /* توسيط النص داخل الرابط */
+  }
+
+  .logo {
+    width: 80px; /* حجم الشعار */
+  }
+
+  .search-button {
+    margin: 0; /* إزالة أي مسافات إضافية */
+  }
+}
