@@ -1,0 +1,575 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/* خلفية الموقع */
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;  /* لضمان أن الصفحة تحتل عرض الشاشة كاملاً */
+    overflow-x: hidden; /* منع التمرير الأفقي */
+    background-color: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
+    background-image: url('https://www.telecomreviewarabia.com/images/stories/2024/3/Saudi_Arabia_charts_promising_prospects_for_communications_and_the_future_of_technology.jpg'); /* هنا نضع الصورة */
+    background-size: cover; /* لتغطية المساحة بالكامل */
+    background-position: center; /* لضبط الصورة في المنتصف */
+    background-attachment: fixed; /* لتثبيت الصورة بحيث تبقى ثابتة عند التمرير */
+}
+
+/* تنسيق الرأس */
+header {
+    background: linear-gradient(135deg, #0b3b01, #0b3b01);
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid #005bb5;
+}
+.logo {
+    display: flex; /* لعرض الشعار والنص بجانب بعض */
+    align-items: center; /* لضبط محاذاة الشعار والنص عموديًا */
+}
+
+.logo img {
+    width: 90px; /* تعديل العرض حسب الحاجة */
+    height: 70px; /* تعديل الارتفاع حسب الحاجة */
+    margin-right: 15px; /* المسافة بين الشعار والنص */
+}
+header h1 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #005bb5;
+    transform: translateY(-3px);
+}
+
+/* تنسيق أقسام الصفحة */
+section {
+    padding: 40px 20px;
+    margin-bottom: 50px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* عنوان الأقسام */
+h2 {
+    font-size: 24px;
+    color: #000000;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* تنسيق الخط الزمني (timeline) */
+.timeline {
+    display: flex;
+    flex-direction: column;
+}
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100px); /* البداية من فوق الصفحة */
+        opacity: 0; /* البداية بشفافية صفر */
+    }
+    100% {
+        transform: translateY(0); /* الوصول إلى المكان الطبيعي */
+        opacity: 1; /* الظهور الكامل */
+    }
+}
+.events-container {
+    display: flex;
+    flex-wrap: wrap; /* يسمح للمستطيلات بالانتقال إلى السطر التالي عند الحاجة */
+    justify-content: center; /* يضع المستطيلات في المنتصف أفقيًا */
+    align-items: center; /* يضع المستطيلات في المنتصف عموديًا */
+    gap: 20px; /* المسافة بين المستطيلات */
+    margin-top: 20px;
+    background-image: url('https://www.telecomreviewarabia.com/images/stories/2024/3/Saudi_Arabia_charts_promising_prospects_for_communications_and_the_future_of_technology.jpg'); /* هنا نضع الصورة */
+    background-size: cover; /* تغطي الصورة المساحة بالكامل */
+    background-position: center; /* لضبط مكان الصورة في المنتصف */
+}
+.event {
+    width: 350px;
+    height: 250px;
+    border-radius: 8px; 
+    padding: 20px;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: slideDown 0.8s ease-out forwards; /* تأثير الحركة عند تحميل الصفحة */
+}
+
+.event:hover {
+    transform: translateY(-10px); /* تأثير الصعود عند مرور السهم */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+.event h3 {
+    font-size: 20px;
+    color: #333;
+}
+
+.event p {
+    font-size: 16px;
+    color: #ffffff;
+}
+
+/* تنسيق المعرض */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.gallery img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* تنسيق الفوتر */
+footer {
+    background: linear-gradient(135deg, #0073e6, #005bb5);
+    color: white;
+    text-align: center;
+    padding: 15px 20px;
+    font-size: 14px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin-top: 10px;
+}
+
+/* تنسيق الروابط عندما تكون نشطة */
+.navbar .active {
+    background-color: #005bb5;
+    color: white;
+}
+/* تنسيق محرك البحث */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;  /* تأكد من أن الحاوية تأخذ كامل عرض الصفحة */
+}
+
+.search-input {
+    width: calc(100% - 40px);  /* يجعل حقل البحث يأخذ المساحة المتبقية من الحاوية بعد تخصيص مساحة للزر */
+    padding: 10px;
+    border-radius: 25px;
+    border: 2px solid #ccc;
+    font-size: 16px;
+    margin-right: 10px;
+    transition: border-color 0.3s ease;
+    height: 50px;
+}
+
+.search-button {
+    position: absolute;
+    right: 10px; /* تحديد المسافة من اليمين */
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    z-index: 1;  /* يجعل الزر فوق حقل البحث */
+}
+
+#search {
+    width: calc(100% - px);  /* العرض يملأ المساحة المتبقية */
+    height: 50px;  /* يمكن تعديل الطول حسب الحاجة */
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 25px;
+    border: 2px solid #ccc;
+    box-sizing: border-box;  /* تأكد من احتساب الحواف في العرض */
+}
+
+
+.search-input:focus {
+    border-color: #005bb5;
+    outline: none;
+}
+
+.search-btn {
+    background-color: #ffffff; /* اللون الأخضر السعودي */
+    border: none;
+    padding: 12px 12px;
+    border-radius: 10px; /* حواف مدورة قليلاً ليظهر كمربع */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -40px; /* لجعل الزر يظهر داخل حقل الإدخال */
+}
+
+.search-btn i {
+    color: white;
+    font-size: 18px;
+}
+
+.search-btn:hover {
+    background-color: #0073e6;
+}
+.search-btn:hover {
+    background-color: #005bb5; /* اللون عند التمرير فوق الزر، مشابه ليوتيوب */
+}
+
+.search-btn:focus {
+    outline: none; /* إزالة الخط الخارجي عند التركيز */
+}
+
+.result-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
+
+.no-results {
+    color: red;
+    text-align: center;
+    padding: 10px;
+}
+.event:nth-child(1) {
+    background-image: url('https://www.telecomreviewarabia.com/images/stories/2024/9/KSA.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.event:nth-child(2) {
+    background-image: url('https://www.alweeam.com.sa/y2019-y2023/wp-content/uploads/2020/09/%D8%A7%D9%84%D9%88%D8%B6%D8%B9-%D8%A7%D9%84%D8%A7%D9%82%D8%AA%D8%B5%D8%A7%D8%AF%D9%8A-%D9%8A%D8%AA%D9%87%D8%A7%D9%88%D9%89-%D9%81%D9%8A-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.event:nth-child(3) {
+    background-image: url('https://alaalem-media.com/arab-health/wp-content/uploads/2021/12/7225721-124338641.jpghttps://media.assettype.com/sabq%2F2022-07%2Fb6cfedab-18f5-4c9a-95a0-4fa58921e25c%2F7225721_124338641.jpg?w=1024&auto=format%2Ccompress&fit=max');
+    background-size: cover;
+    background-position: center;
+}
+
+.event:nth-child(4) {
+    background-image: url('https://maaal.com/wp-content/uploads/2018/06/%D8%B7%D8%A7%D9%82%D8%A9_4.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.event:nth-child(5) {
+    background-image: url('https://vid.alarabiya.net/images/2020/03/23/4443bf0e-197f-401a-94cc-c6654f0b0bbc/4443bf0e-197f-401a-94cc-c6654f0b0bbc_16x9_1200x676.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.event:nth-child(6) {
+    background-image: url('https://mail.balagh.com/upload_list/source/Article/Old/1.How-economics-helps-you.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.event:nth-child(7) {
+    background-image: url('https://www.moe.gov.sa/ar/mediacenter/MOEnews/NewsImages/i-g-a-1443-09.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.event:nth-child(8) {
+    background-image: url('https://cdn.arabsstock.com/uploads/videos/107486/thumbnail_ZXEYdoAliuU9zaeWjpI5.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+.event:nth-child(9) {
+    background-image: url('https://mjdalwatan.com/wp-content/uploads/2024/04/IMG-20240426-WA0075.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.event:nth-child(10) {
+    background-image: url('https://static.srpcdigital.com/styles/1037xauto/public/2024-03/556615.jpeg.webp');
+    background-size: cover;
+    background-position: center;
+}
+#new-section .event:nth-child(1) {
+    background-image: url('https://static.srpcdigital.com/styles/1037xauto/public/2024-03/556615.jpeg.webp');
+    background-size: cover;
+    background-position: center;
+}
+.person h3 {
+    font-size: 20px; /* الحجم الافتراضي للنص */
+    margin-bottom: 10px; /* المسافة بين العنوان والوصف */
+    transition: transform 0.3s ease; /* التأثير عند المرور */
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.person p {
+    margin-top: 10px; /* المسافة بين العنوان والوصف */
+    font-size: 16px; /* حجم الخط لوصف */
+}
+
+.person:hover h3 {
+    transform: translateY(-10px); /* نقل النص للأعلى بمقدار 10px عند المرور */
+}
+/* تنسيق القائمة */
+.navbar {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    gap: 20px; /* المسافة بين العناصر */
+}
+
+.menu-item {
+    position: relative; /* ضروري لجعل الوصف يظهر أسفل العنصر */
+        display: inline-block;
+        margin-right: 20px;
+}
+
+.description {
+    display: none; /* إخفاء الوصف بشكل افتراضي */
+    position: absolute;
+    top: 100%; /* وضع الوصف أسفل العنصر */
+    left: 0;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    color: #333;
+    z-index: 10;
+    opacity: 0; /* جعل الوصف شفافاً */
+    transition: opacity 0.3s ease; /* تأثير الشفافية عند المرور */
+}
+
+/* عند مرور الماوس على العنصر */
+.menu-item:hover .description {
+    display: block; /* إظهار الوصف عند المرور على العنصر */
+    opacity: 1; /* جعل الوصف غير شفاف */
+}
+.sub-description {
+    display: none; /* مخفي في البداية */
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background-color: #e0e0e0;
+    padding: 10px;
+    font-size: 13px;
+    color: #555;
+    border-radius: 5px;
+    width: 200px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease;
+    opacity: 0; /* مخفي في البداية */
+}
+
+/* عندما تمر على السهم */
+.arrow:hover + .description .sub-description {
+    display: block; /* يظهر الوصف الفرعي عند مرور الماوس على السهم */
+    opacity: 1; /* جعل الوصف الفرعي مرئي */
+}
+
+/* لتأثير السهم */
+.arrow {
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.arrow:hover {
+    transform: translateX(5px); /* حركة السهم عند المرور */
+}
+/* إظهار الوصف عند المرور على العنصر */
+.menu-item:hover .description {
+    display: block;
+}
+
+/* إخفاء قائمة السنوات بشكل افتراضي */
+.years-list {
+    display: none;
+    position: absolute;
+    left: 100%; /* قائمة السنوات تظهر على يمين الوصف */
+    top: 0;
+    background-color: #e1e1e1;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    list-style-type: none;
+    margin: 0;
+    width: 250px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 أعمدة */
+    gap: 10px;
+}
+
+/* تنسيق العناصر داخل قائمة السنوات */
+.years-list li {
+    margin: 0;
+}
+
+/* تنسيق الروابط داخل قائمة السنوات */
+.years-list a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px;
+    display: block;
+    text-align: center;
+}
+
+/* تغيير اللون عند المرور على السنة */
+.years-list a:hover {
+    background-color: #ccc;
+}
+
+/* إظهار قائمة السنوات عند المرور على الوصف */
+.description:hover + .years-list {
+    display: block;
+}
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 300px; /* عرض الحاوية */
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 25px; /* زوايا مستديرة */
+  outline: none;
+}
+
+.search-button {
+  position: absolute;
+  right: 10px; /* قرب الأيقونة من الحافة اليمنى */
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #555; /* لون الأيقونة */
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-button:hover {
+  color: #0078ff; /* تغيير لون الأيقونة عند التمرير */
+}
+/* تغيير لون الروابط إلى الأسود */
+a {
+    color: black;  /* تعيين اللون الأسود */
+    text-decoration: none;  /* إزالة الخط السفلي (اختياري) */
+}
+
+/* تغيير لون الروابط عند المرور عليها (التفاعل) */
+a:hover {
+    color: black;  /* تعيين اللون الأسود عند المرور */
+    text-decoration: none;  /* إزالة الخط السفلي عند المرور */
+}
+#suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-height: 150px;
+  overflow-y: auto;
+  display: none;
+  z-index: 1000;
+}
+
+.suggestion {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestion:hover {
+  background: #f0f0f0;
+}
+.event:hover {
+    transform: translateY(-10px); /* يجعل العنصر يصعد */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* إضافة ظل */
+}
+
+.event:hover p {
+    opacity: 1;
+    transform: translateY(-10px); /* يجعل النص يصعد قليلاً */
+}
+
+.event p {
+    margin: 10px 0 0;
+    font-size: 14px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.event h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+}
+
+.event a {
+    color: #000000;
+    text-decoration: none; /* إزالة الخط الافتراضي */
+    transition: color 0.3s ease; /* إضافة حركة سلسة للون */
+}
+
+.event a:hover {
+    color: #000000; /* تغيير لون النص عند التمرير بدلاً من الخط */
+    text-decoration: none; /* تأكيد إزالة الخط */
+}
+h3 {
+    font-size: 40px; /* حجم النص */
+    text-align: center; /* توسيط النص */
+    margin: 20px 0; /* إضافة مساحة فوق وتحت النص */
+    font-weight: bold; /* جعل النص غامقًا (اختياري) */
+}
