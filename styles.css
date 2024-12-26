@@ -683,34 +683,45 @@ a:hover {
     font-size: 14px;
   }
 }
-/* تنسيق الهيدر للجوال */
+/* تحسين تصميم الهيدر للجوال */
 @media (max-width: 768px) {
   header {
     display: flex;
     flex-direction: column; /* ترتيب العناصر عموديًا */
     align-items: center; /* توسيط العناصر */
-    padding: 10px; /* إضافة مساحة داخلية */
+    padding: 10px;
   }
 
   nav {
     display: flex;
-    flex-direction: column; /* وضع الروابط عموديًا */
-    align-items: center; /* توسيط الروابط */
-    margin-top: 10px; /* إضافة مسافة بين القائمة والعناصر الأخرى */
+    flex-wrap: wrap; /* السماح بتوزيع الروابط إذا لم تكن الشاشة كافية */
+    justify-content: center; /* توسيط الروابط أفقيًا */
+    gap: 15px; /* إضافة مسافات بين الروابط */
+    margin-top: 10px;
   }
 
   nav a {
-    font-size: 16px; /* حجم النصوص */
-    margin: 5px 0; /* مسافة بين الروابط */
-    text-align: center; /* توسيط النص */
+    font-size: 16px;
+    padding: 5px 10px; /* إضافة مساحة حول النص */
+    text-align: center;
+    background-color: #fff; /* خلفية الروابط */
+    border-radius: 5px; /* زوايا دائرية */
+    color: #000; /* لون النص */
+    text-decoration: none; /* إزالة الخط السفلي */
+    transition: background-color 0.3s ease; /* تأثير عند التمرير */
+  }
+
+  nav a:hover {
+    background-color: #0078ff; /* لون خلفية عند التمرير */
+    color: #fff; /* لون النص عند التمرير */
   }
 
   .logo {
-    width: 80px; /* تصغير حجم الشعار */
-    margin-bottom: 10px; /* مسافة بين الشعار وباقي العناصر */
+    width: 80px;
+    margin-bottom: 15px;
   }
 
   .search-button {
-    margin-top: 10px; /* مسافة بين زر البحث والعناصر الأخرى */
+    margin-top: 10px;
   }
 }
