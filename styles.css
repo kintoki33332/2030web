@@ -725,3 +725,34 @@ a:hover {
     margin-top: 10px;
   }
 }
+/* تنسيق الهيدر للجوال */
+@media (max-width: 768px) {
+  header {
+    display: flex;
+    flex-direction: column; /* ترتيب العناصر عموديًا */
+    align-items: center; /* توسيط العناصر */
+    padding: 10px; /* إضافة مساحة داخلية */
+  }
+
+  nav {
+    display: flex;
+    flex-direction: row; /* وضع الروابط أفقيًا */
+    justify-content: center; /* توسيط الروابط أفقيًا */
+    gap: 15px; /* إضافة مسافة بين الروابط */
+    margin-top: 10px; /* إضافة مسافة بين القائمة والعناصر الأخرى */
+  }
+
+  nav a {
+    font-size: 16px; /* حجم النصوص */
+    text-align: center; /* توسيط النص */
+  }
+
+  .logo {
+    width: 80px; /* تصغير حجم الشعار */
+    margin-bottom: 10px; /* مسافة بين الشعار وباقي العناصر */
+  }
+
+  .search-button {
+    margin-top: 10px; /* مسافة بين زر البحث والعناصر الأخرى */
+  }
+}
