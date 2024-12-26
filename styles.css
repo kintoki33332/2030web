@@ -784,3 +784,42 @@ a:hover {
     margin: 0; /* إزالة أي مسافات إضافية */
   }
 }
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+        background-color: #ffffff;
+    }
+
+    .logo img {
+        width: 80px;  /* تقليص حجم الشعار في الجوال */
+    }
+
+    .navbar {
+        display: block;  /* تغيير طريقة عرض القوائم في الجوال */
+    }
+
+    .navbar li {
+        margin: 10px 0;
+    }
+
+    .search-container {
+        width: 100%;  /* توسيع مربع البحث ليغطي العرض الكامل */
+    }
+
+    .menu-item {
+        text-align: center;
+    }
+}
+
+/* تصميم الأجهزة اللوحية */
+@media (max-width: 1024px) and (min-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+
+    .navbar {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+}
