@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نتائج البحث</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* حاوية محرك البحث */
+    .search-container {
+        max-width: 600px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        position: relative;
+        margin-top: 30px; /* المسافة بين نتائج البحث ومحرك البحث */
+    }
+
+    /* تنسيق محرك البحث */
+    .search-container input[type="text"] {
+        width: 100%;
+        padding: 12px 15px;
+        font-size: 18px; /* زيادة حجم الخط في مربع البحث */
+        border: 2px solid #ccc;
+        border-radius: 25px;
+        outline: none;
+    }
+
+    .search-container button {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .search-container button svg {
+        width: 20px;
+        height: 20px;
+        fill: #333;
+    }
+
+    /* نتائج البحث */
+    .search-results {
+        margin-top: 30px;
+        padding: 30px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        font-size: 20px; /* زيادة حجم الخط للنتائج */
+    }
+
+    .result-item {
+        margin-bottom: 20px;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        transition: background-color 0.3s ease;
+    }
+
+    .result-item:hover {
+        background-color: #e9f7ff;
+    }
+
+    .result-item a {
+        font-size: 20px;
+        font-weight: bold;
+        color: #007BFF;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    .result-item p {
+        color: #555;
+        font-size: 16px;
+        margin-top: 5px;
+    }
+
+    /* حالة عدم وجود نتائج */
+    .no-results {
+        color: #FF0000;
+        font-size: 20px;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    /* زر الرجوع */
+    .back-button {
+        background-color: #007BFF;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        display: block;
+        margin: 30px auto;
+    }
+
+    .back-button:hover {
+        background-color: #0056b3;
+    }
+    
+    h2 {
+        font-size: 64px; /* حجم الخط */
+        font-weight: bold; /* جعل الخط عريض */
+        color: #000000; /* لون الخط */
+        text-align: center; /* محاذاة النص في الوسط */
+        margin-top: 20px; /* مسافة من الأعلى */
+        margin-bottom: 20px; /* مسافة من الأسفل */
+        font-family: 'Arial', sans-serif; /* تحديد نوع الخط */
+    }
+
+    .search-term {
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+        margin-top: 20px;
+        text-align: center;
+    }
+</style>
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://upload.wikimedia.org/wikipedia/ar/thumb/f/f5/Saudi_Vision_2030_logo.svg/1200px-Saudi_Vision_2030_logo.svg.png">
+            <h1>إنجازات المملكة العربية السعودية 2030</h1>
+        </div>
+        <nav>
+            <ul class="navbar">
+                <li class="menu-item"><a href="#" class="menu-link">الإنجازات</a></li>
+                <li class="menu-item"><a href="#personality">أبرز الإنجازات الوطنية</a><p class="description">وصف لأبرز الإنجازات الوطنية لعام 2024.</p></li>
+                <li class="menu-item"><a href="#gallery">السنوات الجاية</a><p class="description">وصف عن المعرض.</p></li>
+                <li class="menu-item"><a href="#about">عن الموقع</a></li>
+                <li class="menu-item"><a href="../index.html">العودة إلى الصفحة الرئيسية</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h2>نتائج البحث</h2>
+
+    <div class="search-container">
+        <input type="text" id="search-input" value="" placeholder="ابحث هنا...">
+        <button class="search-button" onclick="redirectToSearchPage()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M10 2a8 8 0 106.32 13.906l4.387 4.387a1 1 0 001.414-1.414l-4.387-4.387A8 8 0 0010 2zm0 2a6 6 0 110 12A6 6 0 0110 4z"/>
+            </svg>
+        </button>
+    </div>
+
+    <div id="search-term" class="search-term"></div>
+    <div id="search-results" class="search-results"></div>
+    <button class="back-button" onclick="window.history.back()">الرجوع</button>
+
+    <script>
+        // جلب الكلمة المفتاحية من URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // البحث وعرض النتائج
+        function searchResults(contentData) {
+            const searchTerm = getQueryParam('query') ? getQueryParam('query').toLowerCase() : '';
+            const searchResultsDiv = document.getElementById('search-results');
+            const searchInput = document.getElementById('search-input');
+            const searchTermDiv = document.getElementById('search-term');
+
+            if (!searchTerm) {
+                searchResultsDiv.innerHTML = '<div class="no-results">يرجى إدخال كلمة للبحث</div>';
+                return;
+            }
+
+            // تحديث مستطيل البحث بالكلمة المدخلة
+            searchInput.value = searchTerm;
+
+            let results = [];
+
+            // البحث في البيانات
+            contentData.forEach(page => {
+                if (page.title.toLowerCase().includes(searchTerm) || page.content.toLowerCase().includes(searchTerm)) {
+                    let snippet = page.content.toLowerCase().includes(searchTerm)
+                        ? page.content.substring(page.content.toLowerCase().indexOf(searchTerm), 200) + "..."
+                        : "";
+
+                    results.push(`
+                        <div class="result-item">
+                            <a href="${page.url}?query=${searchTerm}">${page.title}</a>
+                            <p>${snippet}</p>
+                        </div>
+                    `);
+                }
+            });
+
+            // إذا كانت هناك نتائج
+            if (results.length > 0) {
+                searchResultsDiv.innerHTML = results.join('');
+            } else {
+                searchResultsDiv.innerHTML = '<div class="no-results">لا توجد نتائج لبحثك</div>';
+            }
+
+            // عرض الكلمة المفتوحة تحت نتائج البحث
+            searchTermDiv.innerHTML = `"${searchTerm}"`;
+        }
+
+        // تحميل البيانات وعرض النتائج عند تحميل الصفحة
+        window.onload = function() {
+            const searchTerm = getQueryParam('query'); // جلب الكلمة من URL فقط
+            if (searchTerm) {
+                document.getElementById('search-input').value = searchTerm; // تعيين الكلمة في مربع البحث
+            }
+            
+            fetch('content.json')  // تأكد من المسار الصحيح هنا
+                .then(response => response.json())
+                .then(data => searchResults(data))
+                .catch(error => console.error('Error loading content:', error));
+        };
+
+        // إعادة التوجيه إلى صفحة البحث مع الكلمة المفتاحية في الرابط
+        function redirectToSearchPage() {
+            const searchTerm = document.getElementById('search-input').value;
+            if (searchTerm) {
+                window.location.href = `search.html?query=${searchTerm}`;
+            }
+        }
+        
+    </script>
+</body>
+</html>
