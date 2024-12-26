@@ -567,3 +567,55 @@ a:hover {
     color: #000000; /* تغيير لون النص عند التمرير بدلاً من الخط */
     text-decoration: none; /* تأكيد إزالة الخط */
 }
+/* بالنسبة للشاشات الصغيرة */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px; /* حجم الخط أصغر */
+    }
+
+    header {
+        text-align: center; /* محاذاة النص في الهيدر للمنتصف */
+    }
+
+    .navbar {
+        flex-direction: column; /* جعل القائمة عمودية */
+        text-align: center; /* محاذاة العناصر في القائمة للمنتصف */
+    }
+
+    .menu-item {
+        margin-bottom: 15px; /* تباعد بين العناصر */
+    }
+
+    .menu-link {
+        padding: 10px; /* إضافة padding لعناصر القائمة */
+        font-size: 16px; /* تغيير حجم الخط في الروابط */
+    }
+
+    .content {
+        padding: 20px; /* إضافة padding حول المحتوى */
+    }
+
+    /* تعديل الصور لجعلها تتناسب مع الشاشات الصغيرة */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* تعديل الأحجام والعناصر الأخرى حسب الحاجة */
+}
+
+/* بالنسبة للشاشات الكبيرة */
+@media screen and (min-width: 769px) {
+    body {
+        font-size: 16px; /* حجم الخط على الشاشات الكبيرة */
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .menu-item {
+        margin: 0 20px; /* تباعد أكبر بين العناصر */
+    }
+}
