@@ -165,4 +165,11 @@ document.addEventListener("DOMContentLoaded", () => {
       // توجيه المستخدم إلى صفحة البحث مع كلمة البحث في الرابط
       window.location.href = "../../all/search.html?query=" + searchTerm;
   }
-  
+  const urlParams = new URLSearchParams(window.location.search);
+const query = urlParams.get('query');
+
+// إذا كانت المعلمة 'query' موجودة، قم بتجاهل النتائج أو فعل ما يناسبك
+if (query) {
+    // إخفاء أو منع عرض النتائج
+    document.getElementById('search-results').style.display = 'none';
+}
