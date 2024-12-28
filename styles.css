@@ -108,7 +108,6 @@ h2 {
     align-items: center; /* يضع المستطيلات في المنتصف عموديًا */
     gap: 20px; /* المسافة بين المستطيلات */
     margin-top: 20px;
-    background-image: url('https://www.telecomreviewarabia.com/images/stories/2024/3/Saudi_Arabia_charts_promising_prospects_for_communications_and_the_future_of_technology.jpg'); /* هنا نضع الصورة */
     background-size: cover; /* تغطي الصورة المساحة بالكامل */
     background-position: center; /* لضبط مكان الصورة في المنتصف */
 }
