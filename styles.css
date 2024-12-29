@@ -108,6 +108,7 @@ h2 {
     align-items: center; /* يضع المستطيلات في المنتصف عموديًا */
     gap: 20px; /* المسافة بين المستطيلات */
     margin-top: 20px;
+   
     background-size: cover; /* تغطي الصورة المساحة بالكامل */
     background-position: center; /* لضبط مكان الصورة في المنتصف */
 }
@@ -165,7 +166,7 @@ h2 {
 
 /* تنسيق الفوتر */
 footer {
-    background: linear-gradient(135deg, #0073e6, #005bb5);
+    background: linear-gradient(135deg, #0b3b01, #0b3b01);
     color: white;
     text-align: center;
     padding: 15px 20px;
