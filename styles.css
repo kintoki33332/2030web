@@ -639,77 +639,106 @@ a:hover {
   }
 /* General Styles */
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
+/* Container for all sections */
 .container {
-  background: #FFFFFF;
-  border: 1px solid #000000;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  width: 100%;
-  height: auto;
-  background: url(.jpg);
-  filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.1));
-  border-radius: 8px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+}
+
+/* Shared Section Styles */
+.section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    position: relative;
+    width: 90%;  /* Adjust width to be responsive */
+    max-width: 350px;  /* Ensure it doesn't stretch too much */
+    background: url(.jpg);  /* Change the path to the correct image */
+    background-size: cover;
+    filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.1));
+    border-radius: 8px;
+    margin-bottom: 20px;
 }
 
 /* Heading 3 */
-.heading {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 29px;
-  color: #000000;
-  text-align: center;
-  padding: 4px 20px;
-}
-
-/* Link Styling */
-.link {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
-  height: auto;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 22px;
-  text-align: center;
-  color: #000000;
-}
-
-/* Specific Year Styles */
-.year {
-  width: 90%;
-  height: auto;
-  font-size: 18px;
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-/* Media Queries for Mobile */
-@media screen and (max-width: 600px) {
-  .year {
-    font-size: 16px;
-    padding: 10px;
-  }
-
-  .heading {
-    font-size: 18px;
-    padding: 10px;
-  }
-
-  .container {
-    padding: 10px;
+.heading3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4px;
     width: 100%;
-  }
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 29px;
+    color: #000000;
+    text-align: center;
+}
+
+/* Link */
+.link {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 29px;
+    color: #000000;
+    text-align: center;
+    width: 100%;
+    height: 29px;
+    margin-bottom: 10px;
+}
+
+/* Individual Year Sections (e.g. 2016, 2017, etc.) */
+.section-2016 {
+    top: 0;
+}
+
+.section-2017 {
+    top: 0;
+}
+
+.section-2018 {
+    top: 0;
+}
+
+.section-2019 {
+    top: 0;
+}
+
+.section-2020 {
+    top: 0;
+}
+
+/* Specific Year Content Styles */
+.year-content {
+    font-size: 16px;  /* Adjust for mobile screen */
+    line-height: 28px;
+    color: #000000;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
 }
