@@ -637,107 +637,79 @@ a:hover {
   .social-icon.tumblr:hover {
     background-color: #35465C; /* لون تمبلر */
   }
-.container {
-  display: flex;
-  flex-wrap: wrap; /* يسمح بتوزيع العناصر في أكثر من سطر إذا لزم الأمر */
-  justify-content: space-between; /* توزيع العناصر بشكل متساوي مع مسافات بينها */
-  align-items: center; /* محاذاة العناصر عموديًا في المنتصف */
-}
-
-.item {
-  flex: 1 1 200px; /* العنصر سيأخذ مساحة متساوية، مع الحد الأدنى 200px */
-  margin: 10px; /* مسافة بين العناصر */
-  background-color: #f0f0f0; /* لون خلفية العنصر */
-  padding: 20px; /* مسافة داخل العنصر */
-  text-align: center; /* محاذاة النص في الوسط */
-  box-sizing: border-box; /* لتضمين الحواف والمسافات ضمن الأبعاد */
-}
-
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column; /* تحويل العناصر إلى عمودية على الشاشات الصغيرة */
-    align-items: flex-start; /* محاذاة العناصر من اليسار */
-  }
-
-  .item {
-    width: 100%; /* جعل كل عنصر يأخذ العرض الكامل */
-    margin-bottom: 10px; /* إضافة مسافة بين العناصر */
-  }
-}
-  /* General Styles */
+/* General Styles */
 * {
-    box-sizing: border-box;
-  }
-  
-  .container {
-    background: #FFFFFF;
-    border: 1px solid #000000;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    width: 100%;
-    height: auto;
-    background: url(.jpg);
-    filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.1));
-    border-radius: 8px;
-  }
-  
-  /* Heading 3 */
-  .heading {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 29px;
-    color: #000000;
-    text-align: center;
-    padding: 4px 20px;
-  }
-  
-  /* Link Styling */
-  .link {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    width: 100%;
-    height: auto;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 22px;
-    text-align: center;
-    color: #000000;
-  }
-  
-  /* Specific Year Styles */
+  box-sizing: border-box;
+}
+
+.container {
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  height: auto;
+  background: url(.jpg);
+  filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.1));
+  border-radius: 8px;
+}
+
+/* Heading 3 */
+.heading {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 29px;
+  color: #000000;
+  text-align: center;
+  padding: 4px 20px;
+}
+
+/* Link Styling */
+.link {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: auto;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  color: #000000;
+}
+
+/* Specific Year Styles */
+.year {
+  width: 90%;
+  height: auto;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Media Queries for Mobile */
+@media screen and (max-width: 600px) {
   .year {
-    width: 90%;
-    height: auto;
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .heading {
     font-size: 18px;
-    text-align: center;
-    margin-bottom: 15px;
+    padding: 10px;
   }
-  
-  /* Media Queries for Mobile */
-  @media screen and (max-width: 600px) {
-    .year {
-      font-size: 16px;
-      padding: 10px;
-    }
-  
-    .heading {
-      font-size: 18px;
-      padding: 10px;
-    }
-  
-    .container {
-      padding: 10px;
-      width: 100%;
-    }
+
+  .container {
+    padding: 10px;
+    width: 100%;
   }
- 
+}
