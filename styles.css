@@ -637,49 +637,31 @@ a:hover {
   .social-icon.tumblr:hover {
     background-color: #35465C; /* لون تمبلر */
   }
-/* قاعدة عامة لجميع الأجهزة */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
+/* تصميم خاص بالجوال */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column; /* القائمة تصبح عمودية */
+    align-items: center;
+  }
 
-/* الهيدر */
-header {
-  background-color: #007bff;
-  color: white;
-  text-align: center;
-  padding: 20px;
-}
+  nav ul li a {
+    padding: 0.8rem;
+  }
 
-/* العناصر الافتراضية */
-section {
-  margin: 20px;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: #f9f9f9;
-}
+  header {
+    padding: 1.5rem;
+    font-size: 1.5rem;
+  }
 
-/* إخفاء واجهات محددة حسب الجهاز */
-.desktop-only {
-  display: none;
-}
-
-.mobile-only {
-  display: none;
-}
-
-/* واجهة سطح المكتب */
-@media screen and (min-width: 1024px) {
-  .desktop-only {
-    display: block;
+  main {
+    padding: 1rem 0.5rem; /* تقليل الحواف */
   }
 }
 
-/* واجهة الجوال */
-@media screen and (max-width: 1023px) {
-  .mobile-only {
-    display: block;
+/* تصميم خاص بالشاشات الأكبر من 768px */
+@media (min-width: 769px) {
+  main {
+    max-width: 800px;
+    margin: 0 auto;
   }
 }
