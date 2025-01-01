@@ -1035,3 +1035,22 @@ header {
     margin: 0 auto; /* محاذاة العنصر في المنتصف */
   }
 }
+@media (max-width: 768px) {
+  /* إخفاء العناصر غير الضرورية */
+  .header-links {
+    display: none;
+  }
+
+  /* تقليص العرض للمحتوى */
+  .container {
+    width: 90%;  /* تعيين العرض ليأخذ 90% فقط من العرض */
+    padding: 10px;
+    margin: 0 auto;  /* محاذاة العنصر في المنتصف */
+  }
+
+  /* تقليص المسافات */
+  .content {
+    padding: 0;
+    margin: 0;
+  }
+}
