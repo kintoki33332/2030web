@@ -1031,13 +1031,7 @@ header {
 }
 @media (max-width: 768px) {
   body {
-    height: 100vh; /* تعيين ارتفاع الصفحة ليغطي الشاشة بالكامل */
-    overflow: hidden; /* إخفاء العناصر الزائدة عن الشاشة */
-  }
-}
-@media (max-width: 768px) {
-  .content {
-    height: 500px; /* تحديد طول المحتوى */
-    overflow-y: auto; /* إذا كان المحتوى أطول من ذلك، يمكن التمرير */
+    width: 100%; /* عرض الصفحة كاملًا */
+    overflow-x: hidden; /* إخفاء أي محتوى يتجاوز العرض */
   }
 }
