@@ -989,15 +989,15 @@ a:hover {
 
 /* عرض البرغر والقائمة فقط على الجوال */
 @media (max-width: 768px) {
-    .hamburger-menu {
-        display: flex;
-        cursor: pointer;
-        position: fixed;
-        top: 10px;
-        left: 10px;
-        z-index: 1001;
-    }
-  }
+  .hamburger-menu {
+    display: flex;
+    cursor: pointer;
+    position: fixed;
+    top: 10px;   /* تحديد المسافة من الأعلى */
+    right: 10px; /* تحديد المسافة من اليمين */
+    z-index: 1001;  /* ضمان ظهور الزر فوق العناصر الأخرى */
+}
+}
   .off-screen-menu.active {
     left: 0; /* تظهر القائمة */
 }
