@@ -1029,3 +1029,15 @@ header {
       display: none;
   }
 }
+@media (max-width: 768px) {
+  body {
+    height: 100vh; /* تعيين ارتفاع الصفحة ليغطي الشاشة بالكامل */
+    overflow: hidden; /* إخفاء العناصر الزائدة عن الشاشة */
+  }
+}
+@media (max-width: 768px) {
+  .content {
+    height: 500px; /* تحديد طول المحتوى */
+    overflow-y: auto; /* إذا كان المحتوى أطول من ذلك، يمكن التمرير */
+  }
+}
