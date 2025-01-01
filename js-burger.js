@@ -8,23 +8,32 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // التفاعل مع البرجر عند النقر
     hamburger.addEventListener('click', () => {
-        offScreenMenu.classList.toggle('active');
-        hamburgerIcon.classList.toggle('active');
-        overlay.classList.toggle('active'); // تفعيل الطبقة الشفافة
+        // تأكد من أن العناصر موجودة قبل التفاعل
+        if (offScreenMenu && hamburgerIcon && overlay) {
+            offScreenMenu.classList.toggle('active');
+            hamburgerIcon.classList.toggle('active');
+            overlay.classList.toggle('active'); // تفعيل الطبقة الشفافة
+        }
     });
 
     // التفاعل مع زر الإغلاق عند النقر
     closeMenu.addEventListener('click', () => {
-        offScreenMenu.classList.remove('active');
-        hamburgerIcon.classList.remove('active');
-        overlay.classList.remove('active'); // إخفاء الطبقة الشفافة
+        // تأكد من أن العناصر موجودة قبل التفاعل
+        if (offScreenMenu && hamburgerIcon && overlay) {
+            offScreenMenu.classList.remove('active');
+            hamburgerIcon.classList.remove('active');
+            overlay.classList.remove('active'); // إخفاء الطبقة الشفافة
+        }
     });
 
     // التفاعل مع النقر على الطبقة الشفافة لإغلاق القائمة
     overlay.addEventListener('click', () => {
-        offScreenMenu.classList.remove('active');
-        hamburgerIcon.classList.remove('active');
-        overlay.classList.remove('active');
+        // تأكد من أن العناصر موجودة قبل التفاعل
+        if (offScreenMenu && hamburgerIcon && overlay) {
+            offScreenMenu.classList.remove('active');
+            hamburgerIcon.classList.remove('active');
+            overlay.classList.remove('active');
+        }
     });
 
     // وظيفة للتحقق من حجم الشاشة
