@@ -27,18 +27,21 @@ header {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-bottom: 2px solid #005bb5;
+
 }
 .logo {
-    display: flex; /* لعرض الشعار والنص بجانب بعض */
-    align-items: center; /* لضبط محاذاة الشعار والنص عموديًا */
+  display: flex; /* لعرض الشعار والنص بجانب بعض */
+  align-items: center; /* لضبط محاذاة الشعار والنص عموديًا */
+  justify-content: flex-end; /* لجعل النص في الجهة اليسرى والصورة في الجهة اليمنى */
 }
 
 .logo img {
-    width: 90px; /* تعديل العرض حسب الحاجة */
-    height: 70px; /* تعديل الارتفاع حسب الحاجة */
-    margin-right: 15px; /* المسافة بين الشعار والنص */
+  width: 90px; /* تعديل العرض حسب الحاجة */
+  height: 70px; /* تعديل الارتفاع حسب الحاجة */
+  margin-left: 15px; /* المسافة بين الشعار والنص */
+  margin-right: 0; /* إزالة المسافة اليمنى */
 }
+
 header h1 {
     font-size: 28px;
     font-weight: bold;
@@ -54,15 +57,19 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    text-transform: uppercase;
-    font-weight: 600;
-    padding: 10px 20px;
-    border-radius: 25px;
-    transition: all 0.3s ease;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  line-height: 1.5; /* لجعل النص يظهر في المنتصف عموديًا */
+  display: inline-block; /* يجعل الرابط يعامل ككتلة لسهولة محاذاة النص */
+  transform: translateY(5px); /* لتحريك النص لأسفل */
 }
+
 
 nav ul li a:hover {
     background-color: #005bb5;
@@ -1028,10 +1035,4 @@ header {
   .header-links {
       display: none;
   }
-@media (max-width: 768px) {
-    .container {
-        padding: 0;
-        margin: 0;
-        width: 100%;
-    }
 }
