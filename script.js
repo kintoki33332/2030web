@@ -93,40 +93,6 @@ window.onload = function () {
         return urlParams.get(param);
     }
 
-    // دالة لعرض نتائج البحث
-    function searchResults(contentData) {
-        const searchTerm = getQueryParam('query') ? getQueryParam('query').toLowerCase() : '';
-        const searchResultsDiv = document.getElementById('search-results');
-
-        if (!searchTerm) {
-            searchResultsDiv.innerHTML = '';
-            return;
-        }
-
-        const results = [];
-
-        contentData.forEach(page => {
-            if (page.title.toLowerCase().includes(searchTerm) || page.content.toLowerCase().includes(searchTerm)) {
-                const snippet = page.content.toLowerCase().includes(searchTerm)
-                    ? page.content.substring(page.content.toLowerCase().indexOf(searchTerm), 200) + "..."
-                    : "";
-
-                results.push(`
-                    <div>
-                        <a href="${page.url}?search=${searchTerm}">${page.title}</a>
-                        <p>${snippet}</p>
-                    </div>
-                `);
-            }
-        });
-
-        if (results.length > 0) {
-            searchResultsDiv.innerHTML = results.join('');
-        } else {
-            searchResultsDiv.innerHTML = '<div>لا توجد نتائج لبحثك</div>';
-        }
-    }
-
     // تحميل البيانات عند تحميل الصفحة
     fetch('../all/content.json')  // تأكد من أن المسار صحيح
         .then(response => response.json())
