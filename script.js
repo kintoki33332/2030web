@@ -142,7 +142,7 @@ function redirectToSearchPage() {
         return;
     }
 
-    window.location.href = `2030web/all/search.html?query=${encodeURIComponent(searchTerm)}`;
+    window.location.href = `/2030web/all/search.html?query=${encodeURIComponent(searchTerm)}`;
 }
 // حدد مربع الإدخال
 const searchInput = document.getElementById('search');
@@ -163,7 +163,7 @@ function redirectToSearchPage() {
         return;
     }
     // توجيه المستخدم إلى صفحة البحث مع الكلمة المفتاحية
-    window.location.href = `2030web/all/search.html?query=${encodeURIComponent(searchTerm)}`;
+    window.location.href = `/2030web/all/search.html?query=${encodeURIComponent(searchTerm)}`;
 }
 
 
