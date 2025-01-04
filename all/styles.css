@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -13,8 +14,8 @@ body {
     background-color: #f0f2f5;
     color: #333;
     line-height: 1.6;
-    background-image: url('https://www.telecomreviewarabia.com/images/stories/2024/3/Saudi_Arabia_charts_promising_prospects_for_communications_and_the_future_of_technology.jpg'); /* هنا نضع الصورة */
     background-size: cover; /* لتغطية المساحة بالكامل */
+    background-image: url('https://www.telecomreviewarabia.com/images/stories/2024/3/Saudi_Arabia_charts_promising_prospects_for_communications_and_the_future_of_technology.jpg'); /* هنا نضع الصورة */
     background-position: center; /* لضبط الصورة في المنتصف */
     background-attachment: fixed; /* لتثبيت الصورة بحيث تبقى ثابتة عند التمرير */
 }
@@ -28,18 +29,21 @@ header {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-bottom: 2px solid #005bb5;
+
 }
 .logo {
-    display: flex; /* لعرض الشعار والنص بجانب بعض */
-    align-items: center; /* لضبط محاذاة الشعار والنص عموديًا */
+  display: flex; /* لعرض الشعار والنص بجانب بعض */
+  align-items: center; /* لضبط محاذاة الشعار والنص عموديًا */
+  justify-content: flex-end; /* لجعل النص في الجهة اليسرى والصورة في الجهة اليمنى */
 }
 
 .logo img {
-    width: 90px; /* تعديل العرض حسب الحاجة */
-    height: 70px; /* تعديل الارتفاع حسب الحاجة */
-    margin-right: 15px; /* المسافة بين الشعار والنص */
+  width: 90px; /* تعديل العرض حسب الحاجة */
+  height: 70px; /* تعديل الارتفاع حسب الحاجة */
+  margin-left: 15px; /* المسافة بين الشعار والنص */
+  margin-right: 0; /* إزالة المسافة اليمنى */
 }
+
 header h1 {
     font-size: 28px;
     font-weight: bold;
@@ -55,15 +59,19 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    text-transform: uppercase;
-    font-weight: 600;
-    padding: 10px 20px;
-    border-radius: 25px;
-    transition: all 0.3s ease;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  line-height: 1.5; /* لجعل النص يظهر في المنتصف عموديًا */
+  display: inline-block; /* يجعل الرابط يعامل ككتلة لسهولة محاذاة النص */
+  transform: translateY(5px); /* لتحريك النص لأسفل */
 }
+
 
 nav ul li a:hover {
     background-color: #005bb5;
@@ -109,7 +117,7 @@ h2 {
     align-items: center; /* يضع المستطيلات في المنتصف عموديًا */
     gap: 20px; /* المسافة بين المستطيلات */
     margin-top: 20px;
-    background-image: url('https://www.telecomreviewarabia.com/images/stories/2024/3/Saudi_Arabia_charts_promising_prospects_for_communications_and_the_future_of_technology.jpg'); /* هنا نضع الصورة */
+   
     background-size: cover; /* تغطي الصورة المساحة بالكامل */
     background-position: center; /* لضبط مكان الصورة في المنتصف */
 }
@@ -167,7 +175,7 @@ h2 {
 
 /* تنسيق الفوتر */
 footer {
-    background: linear-gradient(135deg, #0073e6, #005bb5);
+    background: linear-gradient(135deg, #0b3b01, #0b3b01);
     color: white;
     text-align: center;
     padding: 15px 20px;
@@ -566,4 +574,467 @@ a:hover {
 .event a:hover {
     color: #000000; /* تغيير لون النص عند التمرير بدلاً من الخط */
     text-decoration: none; /* تأكيد إزالة الخط */
+}
+.logo img, .logo h1 {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .social-links li {
+    display: inline-block;
+  }
+  
+  .social-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff; /* يمكن تعديله حسب الذوق */
+    border-radius: 50%;
+    overflow: hidden;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .social-img {
+    width: 30px; /* حجم الصورة داخل الأيقونة */
+    height: 30px;
+    object-fit: contain; /* يحافظ على تناسب الصورة داخل الأيقونة */
+  }
+  
+  .social-icon:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  
+  .social-icon.twitter:hover {
+    background-color: #1DA1F2; /* لون تويتر */
+  }
+  
+  .social-icon.facebook:hover {
+    background-color: #3b5998; /* لون فيسبوك */
+  }
+  
+  .social-icon.instagram:hover {
+    background-color: #E1306C; /* لون انستجرام */
+  }
+  
+  .social-icon.youtube:hover {
+    background-color: #FF0000; /* لون يوتيوب */
+  }
+  
+  .social-icon.linkedin:hover {
+    background-color: #0077B5; /* لون لينكدإن */
+  }
+  
+  .social-icon.tumblr:hover {
+    background-color: #35465C; /* لون تمبلر */
+  }
+  /* General Styles */
+* {
+    box-sizing: border-box;
+  }
+  
+  .container {
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    height: auto;
+    background: url(.jpg);
+    filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.1));
+    border-radius: 8px;
+  }
+  
+  /* Heading 3 */
+  .heading {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 29px;
+    color: #000000;
+    text-align: center;
+    padding: 4px 20px;
+  }
+  
+  /* Link Styling */
+  .link {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: auto;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    color: #000000;
+  }
+  
+  /* Specific Year Styles */
+  .year {
+    width: 90%;
+    height: auto;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  /* Media Queries for Mobile */
+  @media screen and (max-width: 600px) {
+    .year {
+      font-size: 16px;
+      padding: 10px;
+    }
+  
+    .heading {
+      font-size: 18px;
+      padding: 10px;
+    }
+  
+    .container {
+      padding: 10px;
+      width: 100%;
+    }
+  }
+  
+/* زر الهمبرغر */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .hamburger span {
+    background-color: white;
+    height: 4px;
+    width: 25px;
+    margin: 3px 0;
+    border-radius: 2px;
+  }
+  
+  /* القائمة */
+  .menu {
+    display: none; /* مخفية افتراضيًا */
+    background-color: #333;
+    padding: 0;
+  }
+  
+  .menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu ul li {
+    border-bottom: 1px solid #444;
+  }
+  
+  .menu ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 1rem;
+    display: block;
+  }
+  
+  .menu ul li a:hover {
+    background-color: #575757;
+  }
+  
+  /* التصميم للجوال */
+  @media (max-width: 768px) {
+    .hamburger {
+      display: flex; /* إظهار زر الهمبرغر */
+    }
+  
+    .menu {
+      display: block; /* عرض القائمة عند فتحها */
+    }
+  }
+  
+  /* التصميم للكمبيوتر */
+  @media (min-width: 769px) {
+    .menu {
+      display: flex; /* إظهار القائمة بشكل أفقي */
+      justify-content: space-around;
+    }
+  
+    .menu ul {
+      display: flex;
+    }
+  
+    .menu ul li {
+      border: none;
+    }
+  
+    .menu ul li a {
+      padding: 1rem;
+      color: white;
+    }
+  }
+  /* زر الهمبرغر */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .hamburger span {
+    background-color: white;
+    height: 4px;
+    width: 25px;
+    margin: 3px 0;
+    border-radius: 2px;
+  }
+  
+  /* القائمة */
+  .menu {
+    display: none;
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+  }
+  
+  .menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu ul li {
+    border-bottom: 1px solid #444;
+  }
+  
+  .menu ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 1rem;
+  }
+  
+  .menu ul li a:hover {
+    background-color: #575757;
+  }
+  
+  /* التصميم للجوال */
+  @media (max-width: 768px) {
+    .hamburger {
+      display: flex; /* إظهار زر الهمبرغر */
+    }
+  }
+  
+  /* التصميم للكمبيوتر */
+  @media (min-width: 769px) {
+    .menu {
+      display: flex; /* إظهار القائمة */
+      justify-content: space-around;
+      position: static;
+      background: none;
+      color: black;
+    }
+  
+    .menu ul {
+      display: flex;
+    }
+  
+    .menu ul li {
+      border: none;
+    }
+  
+    .menu ul li a {
+      color: black;
+    }
+  }
+
+/* تصميم البرجر */
+.hamburger-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 25px;
+    width: 35px;
+}
+
+.hamburger-icon span {
+    height: 5px;
+    background-color: #000; /* تغيير اللون إلى الأسود */
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+/* تصميم القائمة الجانبية */
+.off-screen-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background-color: #0b3b01; /* أخضر */
+    color: #fff;
+    transition: right 0.3s ease-in-out;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.off-screen-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 60px;
+    text-align: right; /* تيسير النصوص للعربية */
+}
+
+.off-screen-menu ul li {
+    padding: 20px;
+    font-size: 22px;
+    transition: 0.3s;
+    cursor: pointer;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.off-screen-menu ul li:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateX(10px); /* تأثير عند التمرير على النص */
+}
+
+.off-screen-menu.active {
+    right: 0;
+}
+
+/* زر الإغلاق X */
+.close-menu {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+    transition: transform 0.3s ease;
+}
+
+.close-menu:hover {
+    transform: rotate(90deg); /* تأثير عند المرور على زر الإغلاق */
+}
+
+.off-screen-menu.active .close-menu {
+    display: block;
+}
+
+/* التفاعل مع البرجر */
+.hamburger-icon.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 10px;
+}
+
+.hamburger-icon.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-icon.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: -10px;
+}
+
+/* تحسين النصوص داخل القائمة */
+.off-screen-menu ul {
+  list-style: none; /* إزالة النقاط */
+  padding: 0;
+  margin: 0;
+  flex-grow: 1; /* ملء القائمة */
+  display: flex;
+  flex-direction: column; /* ترتيب عمودي للعناصر */
+  justify-content: start; /* الترتيب يبدأ من الأعلى */
+}
+
+.off-screen-menu ul li a:hover {
+    color: #000; /* التغيير للون الأسود عند التمرير */
+}
+/* إخفاء البرغر والقائمة بشكل افتراضي */
+.hamburger-menu,
+.off-screen-menu {
+    display: none;
+}
+
+/* عرض البرغر والقائمة فقط على الجوال */
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: flex;
+    cursor: pointer;
+    position: fixed;
+    top: 10px;   /* تحديد المسافة من الأعلى */
+    right: 10px; /* تحديد المسافة من اليمين */
+    z-index: 1001;  /* ضمان ظهور الزر فوق العناصر الأخرى */
+  }
+}
+  .off-screen-menu.active {
+    left: 0; /* تظهر القائمة */
+}
+/* إخفاء قائمة البرغر على الديسكتوب */
+@media (min-width: 769px) {
+  .off-screen-menu {
+      display: none !important;
+  }
+}
+/* الهيدر - استايل الديسكتوب */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+}
+
+.header-links a {
+  margin: 0 10px;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* إخفاء الكلمات في الهيدر على الجوال */
+@media (max-width: 768px) {
+  .header-links {
+      display: none;
+  }
 }
