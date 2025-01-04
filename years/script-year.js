@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
   
       // توجيه المستخدم إلى صفحة البحث مع الكلمة المفتاحية
-      window.location.href = "../../all/search.html?query=" + searchTerm;
+      window.location.href = "2030web/all/search.html?query=" + searchTerm;
 
 
   }
@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
   
       // توجيه المستخدم إلى صفحة البحث مع كلمة البحث في الرابط
-      window.location.href = "../../all/search.html?query=" + searchTerm;
+      window.location.href = "2030web/all/search.html?query=" + searchTerm;
   }
   const urlParams = new URLSearchParams(window.location.search);
 const query = urlParams.get('query');
