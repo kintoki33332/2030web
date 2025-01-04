@@ -155,16 +155,6 @@ searchInput.addEventListener("keydown", (event) => {
     }
 });
 
-// دالة البحث
-function redirectToSearchPage() {
-    const searchTerm = searchInput.value.trim();
-    if (searchTerm === "") {
-        alert("يرجى إدخال كلمة للبحث");
-        return;
-    }
-    // توجيه المستخدم إلى صفحة البحث مع الكلمة المفتاحية
-    window.location.href = `/2030web/all/search.html?query=${encodeURIComponent(searchTerm)}`;
-}
 
 
 
