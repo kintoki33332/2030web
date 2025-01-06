@@ -143,12 +143,17 @@ h2 {
 }
 .event h3 {
     font-size: 20px;
-    color: #333;
+    color: #ffffff;
 }
 
 .event p {
     font-size: 16px;
     color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* ظل أسود */
+    background-color: rgba(0, 0, 0, 0.3); /* خلفية بيضاء شفافة */
+    padding: 5px 10px;
+    border-radius: 3px; /* زوايا مستديرة */
+    display: inline-block; /* لاحتواء النص فقط */
 }
 
 /* تنسيق المعرض */
@@ -331,7 +336,7 @@ footer p {
 }
 
 .event:nth-child(9) {
-    background-image: url('https://mjdalwatan.com/wp-content/uploads/2024/04/IMG-20240426-WA0075.jpg');
+    background-image: url('https://ghrannews.com/wp-content/uploads/2022/06/IMG-20220605-WA0004.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -345,6 +350,54 @@ footer p {
     background-size: cover;
     background-position: center;
 }
+
+.event:nth-child(11) {
+  background-image: url('https://maaal.com/wp-content/uploads/2024/12/%D9%88%D9%84%D9%8A-%D8%A7%D9%84%D8%B9%D9%87%D8%AF-%D9%88%D8%A7%D8%B7%D9%81%D8%A7%D9%84.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+#personality .events-container .event:first-child {
+  background-image: url('https://maaal.com/wp-content/uploads/2024/12/%D9%88%D9%84%D9%8A-%D8%A7%D9%84%D8%B9%D9%87%D8%AF-%D9%88%D8%A7%D8%B7%D9%81%D8%A7%D9%84.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#personality .events-container .event:nth-child(2) {
+  background-image: url('https://makkahnewspaper.com/uploads/images/2024/06/27/1734147.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#personality .events-container .event:nth-child(3) {
+  background-image: url('https://www.sawtaldirah.com/UploadCache/libfiles/0/3/600x338o/906.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#personality .events-container .event:nth-child(4) {
+  background-image: url('https://news.elsob7.com/wp-content/uploads/2024/11/%D8%A7%D9%84%D8%A5%D8%B9%D9%84%D8%A7%D9%86-%D8%B9%D9%86-%D8%A7%D9%83%D8%AA%D8%B4%D8%A7%D9%81-%D9%82%D8%B1%D9%8A%D8%A9-%D8%A7%D9%84%D9%86%D8%B7%D8%A7%D8%A9-%D9%81%D9%8A-%D9%88%D8%A7%D8%AD%D8%A9-%D8%AE%D9%8A%D8%A8%D8%B1-%D9%8A%D8%B9%D9%88%D8%AF-%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE%D9%87%D8%A7-%D9%84%D9%84%D8%B9%D8%B5%D8%B1-%D8%A7%D9%84%D8%A8%D8%B1%D9%88%D9%86%D8%B2%D9%8A.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#personality .events-container .event:nth-child(5) {
+  background-image: url('https://www.thearabhospital.com/wp-content/uploads/2021/01/future-medical-technology-controlled-by-ai-robot-using-machine-learning-artificial-intelligence.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#personality .events-container .event:nth-child(6) {
+  background-image: url('https://www.spa.gov.sa/_next/image?url=https%3A%2F%2Fportalcdn.spa.gov.sa%2Fbackend%2Foriginal%2F202406%2FaZesJjlC21tqd6Nqo5hw3bRalHkloSe5EloJOl1v.jpg&w=1920&q=75');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .person h3 {
     font-size: 20px; /* الحجم الافتراضي للنص */
     margin-bottom: 10px; /* المسافة بين العنوان والوصف */
@@ -564,7 +617,7 @@ a:hover {
 }
 
 .event a {
-    color: #000000;
+    color: #ffffff;
     text-decoration: none; /* إزالة الخط الافتراضي */
     transition: color 0.3s ease; /* إضافة حركة سلسة للون */
 }
