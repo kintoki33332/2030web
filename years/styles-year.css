@@ -147,6 +147,11 @@ h2 {
 .event p {
     font-size: 16px;
     color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* ظل أسود */
+    background-color: rgba(0, 0, 0, 0.3); /* خلفية بيضاء شفافة */
+    padding: 5px 10px;
+    border-radius: 3px; /* زوايا مستديرة */
+    display: inline-block; /* لاحتواء النص فقط */
 }
 
 /* تنسيق المعرض */
@@ -287,59 +292,54 @@ footer p {
 }
 
 .event:nth-child(2) {
-    background-image: url('https://www.alweeam.com.sa/y2019-y2023/wp-content/uploads/2020/09/%D8%A7%D9%84%D9%88%D8%B6%D8%B9-%D8%A7%D9%84%D8%A7%D9%82%D8%AA%D8%B5%D8%A7%D8%AF%D9%8A-%D9%8A%D8%AA%D9%87%D8%A7%D9%88%D9%89-%D9%81%D9%8A-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9.jpg');
+    background-image: url('https://al-sharq.com/get/maximage/20210213_1613242575-767.jpeg');
     background-size: cover;
     background-position: center;
 }
 
 .event:nth-child(3) {
-    background-image: url('https://alaalem-media.com/arab-health/wp-content/uploads/2021/12/7225721-124338641.jpghttps://media.assettype.com/sabq%2F2022-07%2Fb6cfedab-18f5-4c9a-95a0-4fa58921e25c%2F7225721_124338641.jpg?w=1024&auto=format%2Ccompress&fit=max');
+    background-image: url('https://economysaudiarabia.com/wp-content/uploads/sites/2/2023/10/Saudi-helalth-1.jpg');
     background-size: cover;
     background-position: center;
 }
 
 .event:nth-child(4) {
-    background-image: url('https://maaal.com/wp-content/uploads/2018/06/%D8%B7%D8%A7%D9%82%D8%A9_4.jpg');
+    background-image: url('https://news.elsob7.com/wp-content/uploads/2024/11/%D8%A7%D9%84%D8%AA%D8%B9%D9%84%D9%8A%D9%85-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A.jpeg');
     background-size: cover;
     background-position: center;
 }
 
 .event:nth-child(5) {
-    background-image: url('https://vid.alarabiya.net/images/2020/03/23/4443bf0e-197f-401a-94cc-c6654f0b0bbc/4443bf0e-197f-401a-94cc-c6654f0b0bbc_16x9_1200x676.png');
+    background-image: url('https://www.vision2030.gov.sa/media/jrjbvcd5/shutterstock_377725657.jpg');
     background-size: cover;
     background-position: center;
 }
 
 .event:nth-child(6) {
-    background-image: url('https://mail.balagh.com/upload_list/source/Article/Old/1.How-economics-helps-you.jpg');
+    background-image: url('https://attaqa.net/wp-content/uploads/2023/11/43710cf82080abc76715ec4ee048aa27.jpg');
     background-size: cover;
     background-position: center;
 }
 
 .event:nth-child(7) {
-    background-image: url('https://www.moe.gov.sa/ar/mediacenter/MOEnews/NewsImages/i-g-a-1443-09.jpg');
+    background-image: url('https://alsaudiapress.com/wp-content/uploads/2024/09/2407865.jpg');
     background-size: cover;
     background-position: center;
 }
 
 .event:nth-child(8) {
-    background-image: url('https://cdn.arabsstock.com/uploads/videos/107486/thumbnail_ZXEYdoAliuU9zaeWjpI5.jpeg');
+    background-image: url('https://cdn.alweb.com/thumbs/tourismin2030vision/article/fit710x532/%D9%82%D8%B7%D8%A7%D8%B9-%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%AD%D8%A9-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A-%D9%8A%D8%B3%D8%AA%D9%87%D8%AF%D9%81-100-%D9%85%D9%84%D9%8A%D9%88%D9%86-%D8%B2%D8%A7%D8%A6%D8%B1-%D8%B3%D9%86%D9%88%D9%8A%D8%A7-%D8%A8%D8%AD%D9%84%D9%88%D9%84-2030.jpg');
     background-size: cover;
     background-position: center;
 }
 
 .event:nth-child(9) {
-    background-image: url('https://mjdalwatan.com/wp-content/uploads/2024/04/IMG-20240426-WA0075.jpg');
+    background-image: url('https://cdn.alweb.com/thumbs/takhassosat/article/fit710x532/%D9%85%D8%A7-%D9%87%D9%88-%D8%AA%D8%AE%D8%B5%D8%B5-%D8%AA%D9%83%D9%86%D9%88%D9%84%D9%88%D8%AC%D9%8A%D8%A7-%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA-%D9%88%D8%A7%D9%84%D8%A7%D8%AA%D8%B5%D8%A7%D9%84%D8%A7%D8%AA.jpg');
     background-size: cover;
     background-position: center;
 }
 .event:nth-child(10) {
-    background-image: url('https://static.srpcdigital.com/styles/1037xauto/public/2024-03/556615.jpeg.webp');
-    background-size: cover;
-    background-position: center;
-}
-#new-section .event:nth-child(1) {
-    background-image: url('https://static.srpcdigital.com/styles/1037xauto/public/2024-03/556615.jpeg.webp');
+    background-image: url('https://cdn1-m.alittihad.ae/store/archive/image/2021/9/27/e4454ddb-8f97-4a00-ad85-cf0b736f9e8f.jpeg');
     background-size: cover;
     background-position: center;
 }
