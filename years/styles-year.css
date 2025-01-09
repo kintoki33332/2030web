@@ -562,7 +562,7 @@ a:hover {
 }
 
 .event a {
-    color: #000000;
+    color: #ffffff;
     text-decoration: none; /* إزالة الخط الافتراضي */
     transition: color 0.3s ease; /* إضافة حركة سلسة للون */
 }
