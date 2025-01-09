@@ -1090,30 +1090,30 @@ header {
   }
 }
 .menu-item {
-    font-family: Arial, sans-serif;
-    list-style: none;
-    text-align: right; /* وضع العنصر على اليمين */
+  font-family: Arial, sans-serif;
+  list-style: none;
+  text-align: right; /* وضع العنصر على اليمين */
 }
 
 .description {
-    display: inline-block; /* لجعل الإطار حول النص فقط */
-    padding: 10px 15px; /* مسافات داخل الإطار */
-    border: 2px solid #0077ff; /* تحديد الإطار */
-    border-radius: 8px; /* زوايا دائرية */
-    background-color: #f9f9f9; /* لون خلفية خفيف */
-    color: #000; /* لون النص */
-    font-size: 14px;
-    margin-top: 10px;
-    text-align: right; /* محاذاة النص داخل الإطار لليمين */
+  display: inline-block; /* لجعل الإطار حول النص فقط */
+  padding: 10px 15px; /* مسافات داخل الإطار */
+  border: 2px solid #000000; /* تحديد الإطار */
+  border-radius: 8px; /* زوايا دائرية */
+  background-color: #f9f9f9; /* لون خلفية خفيف */
+  color: #000; /* لون النص */
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: right; /* محاذاة النص داخل الإطار لليمين */
 }
 
 .social-link {
-    text-decoration: none;
-    color: #0077ff; /* لون الروابط */
-    font-weight: bold; /* تخانة النص */
-    margin-left: 10px; /* مسافة بين الروابط */
+  text-decoration: none;
+  color: #0077ff; /* لون الروابط */
+  font-weight: bold; /* تخانة النص */
+  margin-left: 10px; /* مسافة بين الروابط */
 }
 
 .social-link:hover {
-    text-decoration: underline; /* خط تحت النص عند التمرير */
+  text-decoration: underline; /* خط تحت النص عند التمرير */
 }
