@@ -594,14 +594,12 @@ h3 {
   margin-top: 10px;
   text-align: right; /* محاذاة النص داخل الإطار لليمين */
 }
-
 .social-link {
   text-decoration: none;
   color: #0077ff; /* لون الروابط */
   font-weight: bold; /* تخانة النص */
   margin-left: 10px; /* مسافة بين الروابط */
 }
-
 .social-link:hover {
   text-decoration: underline; /* خط تحت النص عند التمرير */
 }
