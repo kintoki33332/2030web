@@ -227,6 +227,13 @@
                 window.location.href = `search.html?query=${searchTerm}`;
             }
         }
+         
+// إضافة وظيفة البحث عند الضغط على Enter
+document.getElementById('search-input').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        redirectToSearchPage();
+    }
+});
         
     </script>
 </body>
