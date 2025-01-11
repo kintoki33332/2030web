@@ -1065,21 +1065,192 @@ header {
 .social-link:hover {
   text-decoration: underline; /* خط تحت النص عند التمرير */
 }
-// الكود لكشف إذا كانت الصورة في نافذة العرض
-const images = document.querySelectorAll('.fade-in-image');
+/* استهداف الشاشات الصغيرة*/
+@media screen and (max-width: 931px) {
+  h1 {
+      display: none;
+  }
+  header {
+    display: flex;
+    justify-content: flex-start; /* يجعل العناصر باتجاه اليسار */
+    align-items: center;
+    flex-direction: row-reverse; /* يجعل الشعار في الجهة اليسرى */
+  }
 
-const observer = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      // إضافة الكلاس عندما تكون الصورة في الشاشة
-      entry.target.classList.add('in-viewport');
-    }
-  });
-}, {
-  threshold: 0.5 // تأكد أن الصورة ظاهرة بنسبة 50% على الأقل
-});
+ /* الشعار في الجهة اليسرى على الجوال */
+ .logo {
+  order: 1;
+}
 
-images.forEach(image => {
-  observer.observe(image);
-});
+.navbar {
+  order: 2; /* القائمة ستظل في الجهة اليمنى */
+}
 
+.menu-item {
+  display: none; /* إخفاء القائمة */
+}
+ /* عند التمرير لأسفل يظهر العنصر */
+ .events-container {
+  opacity: 1; /* ظهور العنصر تدريجيًا */
+  transform: translateY(0); /* تحريك العنصر إلى مكانه الطبيعي */
+}
+.hamburger-menu {
+  display: flex;
+  cursor: pointer;
+  position: fixed;
+  top: 10px;   /* تحديد المسافة من الأعلى */
+  right: 20px; /* تحديد المسافة من اليمين */
+  
+}
+
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 25px;
+  width: 35px;
+}
+
+.hamburger-icon span {
+  height: 5px;
+  background-color: #000; /* تغيير اللون إلى الأسود */
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+/* تصميم القائمة الجانبية */
+.off-screen-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 300px;
+  height: 100vh;
+  background-color: #0b3b01; /* أخضر */
+  color: #fff;
+  transition: right 0.3s ease-in-out;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.off-screen-menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 60px;
+  text-align: right; /* تيسير النصوص للعربية */
+}
+
+.off-screen-menu ul li {
+  padding: 20px;
+  font-size: 22px;
+  transition: 0.3s;
+  cursor: pointer;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.off-screen-menu ul li:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateX(10px); /* تأثير عند التمرير على النص */
+}
+
+.off-screen-menu.active {
+  right: 0;
+}
+
+/* زر الإغلاق X */
+.close-menu {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+  transition: transform 0.3s ease;
+}
+
+.close-menu:hover {
+  transform: rotate(90deg); /* تأثير عند المرور على زر الإغلاق */
+}
+
+.off-screen-menu.active .close-menu {
+  display: block;
+}
+
+/* التفاعل مع البرجر */
+.hamburger-icon.active span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 10px;
+}
+
+.hamburger-icon.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-icon.active span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: -10px;
+}
+
+/* تحسين النصوص داخل القائمة */
+.off-screen-menu ul {
+list-style: none; /* إزالة النقاط */
+padding: 0;
+margin: 0;
+flex-grow: 1; /* ملء القائمة */
+display: flex;
+flex-direction: column; /* ترتيب عمودي للعناصر */
+justify-content: start; /* الترتيب يبدأ من الأعلى */
+}
+
+.off-screen-menu ul li a:hover {
+  color: #000; /* التغيير للون الأسود عند التمرير */
+}
+.active {
+  background-color: #0b3b01;
+  color: white;
+}
+.navbar {
+  background-color: #0b3b01;
+  color: rgb(232, 230, 227);
+}
+@media screen and (max-width: 931px) and (orientation: landscape) {
+  header {
+    position: relative;  /* تحديد مرجعية العناصر التي تستخدم position:absolute */
+    height: 90px;        /* حدد ارتفاع الهيدر بما يناسبك */
+  }
+  .logo {
+    position: absolute;
+    top: 10px;        /* المسافة من الأعلى */
+    left: 10px;       /* المسافة من الجهة اليسرى */
+    justify-content: center;  /* للتوسيط أفقيًا */
+    align-items: center;      /* للتوسيط عموديًا */
+    transform: none;  /* إلغاء الترجمة (translate) لأنك لا تحتاجه */
+  }
+ .search-container {
+  position: absolute;
+  top: 18px;        /* لتحريكها فوق الهيدر بمقدار 10px */
+  left: 50%;         /* لوضعها في المنتصف */
+  transform: translateX(-50%); /* لضبط الموقع بشكل دقيق في المنتصف */
+  justify-content: center;  /* للتوسيط أفقيًا */
+  align-items: center;      /* للتوسيط عموديًا */
+}
+.hamburger-menu {
+  display: flex;
+  cursor: pointer;
+  position: absolute;  /* لضمان أن الزر داخل الهيدر */
+  top: 0;              /* تحديد المسافة من الأعلى داخل الهيدر */
+  right: 0;            /* تحديد المسافة من اليمين داخل الهيدر */
+  z-index: 1001;       /* ضمان ظهور الزر فوق العناصر الأخرى */
+}
+}
+}
+@media screen and (min-width: 931px) {
+   /* الشعار في الجهة اليمنى على الشاشات الكبيرة */
+   .logo {
+    order: 1;
+  }
+}
