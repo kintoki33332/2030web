@@ -1111,7 +1111,6 @@ header {
 .social-link:hover {
   text-decoration: underline; /* خط تحت النص عند التمرير */
 }
-/* استهداف الشاشات الصغيرة*/
 @media screen and (max-width: 931px) {
   h1 {
       display: none;
@@ -1121,11 +1120,33 @@ header {
     justify-content: flex-start; /* يجعل العناصر باتجاه اليسار */
     align-items: center;
     flex-direction: row-reverse; /* يجعل الشعار في الجهة اليسرى */
+    height: 100px; /* زيادة ارتفاع الهيدر */
+  }
+  .search-container {
+    display: flex;
+    width: 250px; /* عرض الحاوية */
+    left: -11%; /* الانتقال إلى منتصف العرض */
+  }
+  .logo {
+    display: flex; /* لعرض الشعار والنص بجانب بعض */
+    align-items: center; /* لضبط محاذاة الشعار والنص عموديًا */
+    top: 14px; /* تعديل هذه القيمة لإنزال الشعار */
+    left: 0; /* محاذاته في الزاوية اليسرى */
+    justify-content: flex-end; /* لجعل النص في الجهة اليسرى والصورة في الجهة اليمنى */
+    position: absolute;  /* استخدام position absolute لضبطه بشكل دقيق */
+    padding: 1px; /* المسافة حول الشعار */
+  }
+  
+  .logo img {
+    width: 90px; /* تعديل العرض حسب الحاجة */
+    height: 70px; /* تعديل الارتفاع حسب الحاجة */
+    margin-left: 15px; /* المسافة بين الشعار والنص */
+    margin-right: 0; /* إزالة المسافة اليمنى */
   }
 
  /* الشعار في الجهة اليسرى على الجوال */
  .logo {
-  order: 1;
+  order: 2;
 }
 
 .navbar {
@@ -1143,10 +1164,8 @@ header {
 .hamburger-menu {
   display: flex;
   cursor: pointer;
-  position: fixed;
-  top: 10px;   /* تحديد المسافة من الأعلى */
-  right: 20px; /* تحديد المسافة من اليمين */
-  
+  top: 35px;   /* تحديد المسافة من الأعلى */
+  right: -13px; /* تحديد المسافة من اليمين */
 }
 
 .hamburger-icon {
