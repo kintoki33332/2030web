@@ -1065,3 +1065,21 @@ header {
 .social-link:hover {
   text-decoration: underline; /* خط تحت النص عند التمرير */
 }
+// الكود لكشف إذا كانت الصورة في نافذة العرض
+const images = document.querySelectorAll('.fade-in-image');
+
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // إضافة الكلاس عندما تكون الصورة في الشاشة
+      entry.target.classList.add('in-viewport');
+    }
+  });
+}, {
+  threshold: 0.5 // تأكد أن الصورة ظاهرة بنسبة 50% على الأقل
+});
+
+images.forEach(image => {
+  observer.observe(image);
+});
+
