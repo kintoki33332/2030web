@@ -123,6 +123,29 @@
         margin-top: 20px;
         text-align: center;
     }
+    .hamburger-menu {
+  display: flex;
+  cursor: pointer;
+  position: fixed;
+  top: 10px;   /* تحديد المسافة من الأعلى */
+  right: 344px; /* تحديد المسافة من اليمين */
+  
+}
+/* إخفاء علامة الهمبرغر في الأجهزة المكتبية */
+@media screen and (min-width: 931px) {
+    .hamburger-menu {
+        display: none;
+    }
+    .back-button.back-top {
+        display: none;
+    }
+}
+/* إخفاء زر "الرجوع" فقط على شاشات الجوال */
+@media (max-width: 767px) {
+    .back-button.back-regular {
+        display: none;
+    }
+}
 </style>
 <body>
     <header>
@@ -152,6 +175,21 @@
                         <a href="../index.html">العودة إلى الصفحة الرئيسية</a>
                         </p>                    
                     </li>  
+                <li class="hamburger-menu" id="hamburger">
+                        <div class="hamburger-icon">
+                            <span class="burger__bun" data-v-ccf9b649=""></span>
+                            <span class="burger__meat" data-v-ccf9b649=""></span>
+                            <span class="burger__bun" data-v-ccf9b649=""></span>
+                        </div>
+                        <!-- القائمة الجانبية -->
+    <div class="off-screen-menu">
+        <!-- زر الإغلاق X -->
+        <div class="close-menu" id="close-menu">X</div>
+        <ul>
+            <li><a href="../index.html">العودة إلى الصفحة الرئيسية</a>
+        </ul>
+        <!-- ربط ملف جافا سكريبت -->
+<script src="/js-burger.js"></script>
                 </li>
                 <div class="logo">
                 <img src="https://upload.wikimedia.org/wikipedia/ar/thumb/f/f5/Saudi_Vision_2030_logo.svg/1200px-Saudi_Vision_2030_logo.svg.png">
@@ -172,7 +210,8 @@
 
     <div id="search-term" class="search-term"></div>
     <div id="search-results" class="search-results"></div>
-    <button class="back-button" onclick="window.history.back()">الرجوع</button>
+    <button class="back-button back-regular" onclick="goBack()">الرجوع</button>
+    <button class="back-button back-top" onclick="goBack()">الرجوع إلى الأعلى</button>
 
     <script>
         // جلب الكلمة المفتاحية من URL
@@ -252,6 +291,13 @@ document.getElementById('search-input').addEventListener('keydown', function(eve
         redirectToSearchPage();
     }
 });
+function goBack() {
+    if (window.innerWidth <= 768) {  // التحقق من حجم الشاشة (موبايل)
+        window.scrollTo(0, 0);  // التمرير إلى أعلى الصفحة
+    } else {
+        window.history.back();  // العودة إلى الصفحة السابقة على الأجهزة الأخرى
+    }
+}
         
     </script>
 </body>
