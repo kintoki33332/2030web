@@ -123,13 +123,11 @@
         margin-top: 20px;
         text-align: center;
     }
-    .hamburger-menu {
+.hamburger-menu {
   display: flex;
   cursor: pointer;
-  position: fixed;
-  top: 10px;   /* تحديد المسافة من الأعلى */
-  right: 344px; /* تحديد المسافة من اليمين */
-  
+  top: 33px;   /* تحديد المسافة من الأعلى */
+  right: 4px; /* تحديد المسافة من اليمين */
 }
 /* إخفاء علامة الهمبرغر في الأجهزة المكتبية */
 @media screen and (min-width: 931px) {
@@ -145,6 +143,52 @@
     .back-button.back-regular {
         display: none;
     }
+    /* حاوية محرك البحث */
+    .search-container {
+        max-width: 600px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        position: relative;
+        margin-top: 30px; /* المسافة بين نتائج البحث ومحرك البحث */
+        transform: translateX(18%); /* يحرك العنصر 10% من عرضه */
+    }
+    @keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* العناصر الأساسية */
+.result-item {
+  opacity: 0; /* تبدأ العناصر مخفية */
+  transform: translateY(20px); /* تتحرك قليلاً للأسفل */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* العناصر المرئية */
+.result-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* أول 5 عناصر تظهر بدون حركة */
+.result-item.first-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: none !important;
+}
+/* أول 5 عناصر تظهر فورًا */
+.result-item:nth-child(-n+5) {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: none !important;
+}
 }
 </style>
 <body>
@@ -214,77 +258,77 @@
     <button class="back-button back-top" onclick="goBack()">الرجوع إلى الأعلى</button>
 
     <script>
-        // جلب الكلمة المفتاحية من URL
-        function getQueryParam(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
+       // جلب الكلمة المفتاحية من URL
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
+// البحث وعرض النتائج
+function searchResults(contentData) {
+    const searchTerm = getQueryParam('query') ? getQueryParam('query').toLowerCase() : '';
+    const searchResultsDiv = document.getElementById('search-results');
+    const searchInput = document.getElementById('search-input');
+    const searchTermDiv = document.getElementById('search-term');
+
+    if (!searchTerm) {
+        searchResultsDiv.innerHTML = '<div class="no-results">يرجى إدخال كلمة للبحث</div>';
+        return;
+    }
+
+    // تحديث مستطيل البحث بالكلمة المدخلة
+    searchInput.value = searchTerm;
+
+    let results = [];
+
+    // البحث في البيانات
+    contentData.forEach(page => {
+        if (page.title.toLowerCase().includes(searchTerm) || page.content.toLowerCase().includes(searchTerm)) {
+            let snippet = page.content.toLowerCase().includes(searchTerm)
+                ? page.content.substring(page.content.toLowerCase().indexOf(searchTerm), 200) + "..."
+                : "";
+
+            results.push(`
+                <div class="result-item">
+                    <a href="${page.url}?query=${searchTerm}">${page.title}</a>
+                    <p>${snippet}</p>
+                </div>
+            `);
         }
+    });
 
-        // البحث وعرض النتائج
-        function searchResults(contentData) {
-            const searchTerm = getQueryParam('query') ? getQueryParam('query').toLowerCase() : '';
-            const searchResultsDiv = document.getElementById('search-results');
-            const searchInput = document.getElementById('search-input');
-            const searchTermDiv = document.getElementById('search-term');
+    // إذا كانت هناك نتائج
+    if (results.length > 0) {
+        searchResultsDiv.innerHTML = results.join('');
+    } else {
+        searchResultsDiv.innerHTML = '<div class="no-results">لا توجد نتائج لبحثك</div>';
+    }
 
-            if (!searchTerm) {
-                searchResultsDiv.innerHTML = '<div class="no-results">يرجى إدخال كلمة للبحث</div>';
-                return;
-            }
+    // عرض الكلمة المفتوحة تحت نتائج البحث
+    searchTermDiv.innerHTML = `"${searchTerm}"`;
+}
 
-            // تحديث مستطيل البحث بالكلمة المدخلة
-            searchInput.value = searchTerm;
+// تحميل البيانات وعرض النتائج عند تحميل الصفحة
+window.onload = function() {
+    const searchTerm = getQueryParam('query'); // جلب الكلمة من URL فقط
+    if (searchTerm) {
+        document.getElementById('search-input').value = searchTerm; // تعيين الكلمة في مربع البحث
+    }
 
-            let results = [];
+    fetch('content.json')  // تأكد من المسار الصحيح هنا
+        .then(response => response.json())
+        .then(data => searchResults(data))
+        .catch(error => console.error('Error loading content:', error));
+};
 
-            // البحث في البيانات
-            contentData.forEach(page => {
-                if (page.title.toLowerCase().includes(searchTerm) || page.content.toLowerCase().includes(searchTerm)) {
-                    let snippet = page.content.toLowerCase().includes(searchTerm)
-                        ? page.content.substring(page.content.toLowerCase().indexOf(searchTerm), 200) + "..."
-                        : "";
+// إعادة التوجيه إلى صفحة البحث مع الكلمة المفتاحية في الرابط
+function redirectToSearchPage() {
+    const searchTerm = document.getElementById('search-input').value;
+    if (searchTerm) {
+        window.location.href = `search.html?query=${searchTerm}`;
+    }
+}
 
-                    results.push(`
-                        <div class="result-item">
-                            <a href="${page.url}?query=${searchTerm}">${page.title}</a>
-                            <p>${snippet}</p>
-                        </div>
-                    `);
-                }
-            });
-
-            // إذا كانت هناك نتائج
-            if (results.length > 0) {
-                searchResultsDiv.innerHTML = results.join('');
-            } else {
-                searchResultsDiv.innerHTML = '<div class="no-results">لا توجد نتائج لبحثك</div>';
-            }
-
-            // عرض الكلمة المفتوحة تحت نتائج البحث
-            searchTermDiv.innerHTML = `"${searchTerm}"`;
-        }
-
-        // تحميل البيانات وعرض النتائج عند تحميل الصفحة
-        window.onload = function() {
-            const searchTerm = getQueryParam('query'); // جلب الكلمة من URL فقط
-            if (searchTerm) {
-                document.getElementById('search-input').value = searchTerm; // تعيين الكلمة في مربع البحث
-            }
-            
-            fetch('content.json')  // تأكد من المسار الصحيح هنا
-                .then(response => response.json())
-                .then(data => searchResults(data))
-                .catch(error => console.error('Error loading content:', error));
-        };
-
-        // إعادة التوجيه إلى صفحة البحث مع الكلمة المفتاحية في الرابط
-        function redirectToSearchPage() {
-            const searchTerm = document.getElementById('search-input').value;
-            if (searchTerm) {
-                window.location.href = `search.html?query=${searchTerm}`;
-            }
-        }
-         
 // إضافة وظيفة البحث عند الضغط على Enter
 document.getElementById('search-input').addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
@@ -298,6 +342,35 @@ function goBack() {
         window.history.back();  // العودة إلى الصفحة السابقة على الأجهزة الأخرى
     }
 }
+// وظيفة لإظهار العناصر داخل الشاشة أثناء التمرير
+function showOnScroll() {
+  const items = document.querySelectorAll('.result-item:not(.first-visible)');
+  const windowHeight = window.innerHeight;
+
+  items.forEach((item) => {
+    const itemTop = item.getBoundingClientRect().top;
+
+    // إذا كان العنصر مرئيًا داخل الشاشة
+    if (itemTop < windowHeight - 50) {
+      item.classList.add('show');
+    }
+  });
+}
+
+// ضمان تحديث النتائج عند التمرير
+window.addEventListener('scroll', showOnScroll);
+
+// عرض أول 5 عناصر مباشرة عند التحميل
+document.addEventListener('DOMContentLoaded', () => {
+  const firstItems = document.querySelectorAll('.result-item.first-visible');
+  firstItems.forEach((item) => {
+    item.classList.add('show');
+  });
+});
+
+
+
+
         
     </script>
 </body>
