@@ -995,43 +995,6 @@ a:hover {
 .off-screen-menu {
     display: none;
 }
-
-/* عرض البرغر والقائمة فقط على الجوال */
-@media (max-width: 768px) {
-  .hamburger-menu {
-    display: flex;
-    cursor: pointer;
-    position: fixed;
-    top: 10px;   /* تحديد المسافة من الأعلى */
-    right: 10px; /* تحديد المسافة من اليمين */
-    z-index: 1001;  /* ضمان ظهور الزر فوق العناصر الأخرى */
-  }
-}
-  .off-screen-menu.active {
-    left: 0; /* تظهر القائمة */
-}
-/* إخفاء قائمة البرغر على الديسكتوب */
-@media (min-width: 769px) {
-  .off-screen-menu {
-      display: none !important;
-  }
-}
-/* الهيدر - استايل الديسكتوب */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #333;
-  color: #fff;
-}
-
-.header-links a {
-  margin: 0 10px;
-  color: #fff;
-  text-decoration: none;
-}
-
 /* إخفاء الكلمات في الهيدر على الجوال */
 @media (max-width: 768px) {
   .header-links {
@@ -1050,7 +1013,7 @@ header {
   border: 2px solid #000000; /* تحديد الإطار */
   border-radius: 8px; /* زوايا دائرية */
   background-color: #f9f9f9; /* لون خلفية خفيف */
-  color: #000; /* لون النص */
+  color: #000000; /* لون النص */
   font-size: 14px;
   margin-top: 10px;
   text-align: right; /* محاذاة النص داخل الإطار لليمين */
@@ -1061,6 +1024,7 @@ header {
   color: #0077ff; /* لون الروابط */
   font-weight: bold; /* تخانة النص */
   margin-left: 10px; /* مسافة بين الروابط */
+  color: #000000; /* لون النص */
 }
 
 .social-link:hover {
@@ -1085,12 +1049,12 @@ header {
   }
   .logo {
     display: flex; /* لعرض الشعار والنص بجانب بعض */
-    align-items: center; /* لضبط محاذاة الشعار والنص عموديًا */
-    top: 14px; /* تعديل هذه القيمة لإنزال الشعار */
-    left: 0; /* محاذاته في الزاوية اليسرى */
-    justify-content: flex-end; /* لجعل النص في الجهة اليسرى والصورة في الجهة اليمنى */
-    position: absolute;  /* استخدام position absolute لضبطه بشكل دقيق */
-    padding: 1px; /* المسافة حول الشعار */
+      align-items: center; /* لضبط محاذاة الشعار والنص عموديًا */
+      top: 14px; /* تعديل هذه القيمة لإنزال الشعار */
+      left: -10px; /* محاذاته في الزاوية اليسرى */
+      justify-content: flex-end; /* لجعل النص في الجهة اليسرى والصورة في الجهة اليمنى */
+      position: absolute;  /* استخدام position absolute لضبطه بشكل دقيق */
+      padding: 1px; /* المسافة حول الشعار */
   }
   
   .logo img {
