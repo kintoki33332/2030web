@@ -398,7 +398,37 @@ footer p {
 }
 
 #gallery .events-container .event:nth-child(1) {
-  background-image: url('https://www.telecomreviewarabia.com/images/stories/2024/9/KSA.jpg');
+  background-image: url('https://www.pif.gov.sa/-/media/project/pif-corporate/pif-corporate-site/our-investments/portfolio/slider-images/qiddiya/03-atrium-view.png?h=556&iar=0&w=1000');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#gallery .events-container .event:nth-child(2) {
+  background-image: url('https://www.redseaglobal.com/documents/d/guest/amaala-render-1-jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#gallery .events-container .event:nth-child(3) {
+  background-image: url('https://fifreedomtoday.com/wp-content/uploads/2023/04/download-1-1.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#gallery .events-container .event:nth-child(4) {
+  background-image: url('https://therff.com/new/projects/8.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#gallery .events-container .event:nth-child(5) {
+  background-image: url('https://insight.oceanx.sa/wp-content/uploads/2023/12/6-Dec_Website-card-copy-2-scaled.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#gallery .events-container .event:nth-child(6) {
+  background-image: url('https://www.vision2030.gov.sa/media/4psbk2h1/the-line-public-exhibition-cover.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
