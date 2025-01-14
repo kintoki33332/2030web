@@ -218,3 +218,10 @@ document.addEventListener("DOMContentLoaded", function() {
         hamburgerIcon.classList.remove('active');
     });
 });
+function goBack() {
+    if (window.innerWidth <= 931) {  // التحقق من حجم الشاشة (موبايل)
+        window.scrollTo(0, 0);  // التمرير إلى أعلى الصفحة
+    } else {
+        window.history.back();  // العودة إلى الصفحة السابقة على الأجهزة الأخرى
+    }
+}
