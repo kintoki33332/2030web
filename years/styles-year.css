@@ -1210,3 +1210,7 @@ header {
         display: none;
     }
 }
+#references {
+    color: blue; /* لتغيير لون النص داخل القسم */
+    background-color: lightblue; /* لتغيير لون خلفية القسم (اختياري) */
+}
