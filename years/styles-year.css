@@ -1209,7 +1209,8 @@ header {
     .back-button.back-top {
         display: none;
     }
-.references a {
-      color: blue; /* لجعل الروابط باللون الأزرق */
+#references a {
+      color: blue; /* تغيير لون الروابط فقط إلى الأزرق */
       text-decoration: none; /* إزالة الخط السفلي (اختياري) */
   }
+
