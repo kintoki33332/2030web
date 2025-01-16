@@ -1231,4 +1231,9 @@ a {
     .responsive-logo {
         max-width: 80%; /* الشعار يشغل 80% من عرض الشاشة */
     }
+    .search-container {
+      display: flex;
+      width: 230px; /* عرض الحاوية */
+      left: -10%; /* الانتقال إلى منتصف العرض */
+    }
 }
