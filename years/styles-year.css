@@ -1209,8 +1209,7 @@ header {
     .back-button.back-top {
         display: none;
     }
-}
-#references {
-    color: blue; /* لتغيير لون النص داخل القسم */
-    background-color: lightblue; /* لتغيير لون خلفية القسم (اختياري) */
-}
+.references a {
+      color: blue; /* لجعل الروابط باللون الأزرق */
+      text-decoration: none; /* إزالة الخط السفلي (اختياري) */
+  }
