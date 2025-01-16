@@ -1239,3 +1239,23 @@ justify-content: start; /* الترتيب يبدأ من الأعلى */
     order: 1;
   }
 }
+@media (max-width: 375px) {
+    .responsive-logo {
+        max-width: 80%; /* الشعار يشغل 80% من عرض الشاشة */
+    }
+    .search-container {
+        display: flex;
+        width: 200px;
+        left: -11%;
+    }
+}
+@media (max-width: 320px) {
+    .responsive-logo {
+        max-width: 80%; /* الشعار يشغل 80% من عرض الشاشة */
+    }
+    .search-container {
+        display: flex;
+        width: 157px;
+        left: -11%;
+    }
+}
