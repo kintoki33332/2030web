@@ -1227,3 +1227,8 @@ a {
     text-decoration: none;
 }
     }
+@media (max-width: 375px) {
+    .responsive-logo {
+        max-width: 80%; /* الشعار يشغل 80% من عرض الشاشة */
+    }
+}
