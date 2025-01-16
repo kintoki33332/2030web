@@ -961,6 +961,12 @@ header {
     list-style: none;
     text-align: right; /* وضع العنصر على اليمين */
   }
+.responsive-logo {
+    max-width: 100%; /* يجعل العرض متناسبًا مع الحاوية */
+    height: auto;    /* يحافظ على نسبة العرض إلى الارتفاع */
+    display: block;  /* إزالة المساحات البيضاء أسفل الصورة */
+    margin: 0 auto;  /* يجعل اللوجو في المنتصف */
+}
   
   .description {
     display: inline-block; /* لجعل الإطار حول النص فقط */
