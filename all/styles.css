@@ -1283,7 +1283,7 @@ justify-content: start; /* الترتيب يبدأ من الأعلى */
 }
 /* لجهاز بدقة 360x740 */
 @media (max-width: 360px) and (max-height: 740px) {
-    responsive-logo {
+    .responsive-logo {
         max-width: 80%; /* الشعار يشغل 80% من عرض الشاشة */
     }
     .search-container {
