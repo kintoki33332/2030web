@@ -1209,7 +1209,7 @@ header {
     .back-button.back-top {
         display: none;
     }
-#references a {
+a {
       color: blue; /* تغيير لون الروابط فقط إلى الأزرق */
       text-decoration: none; /* إزالة الخط السفلي (اختياري) */
   }
