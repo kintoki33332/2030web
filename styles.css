@@ -1349,11 +1349,10 @@ justify-content: start; /* الترتيب يبدأ من الأعلى */
     order: 1;
   }
 }
-/* ترتيب القواعد من الأكثر تحديداً إلى الأقل تحديداً */
-
+/* لجهاز بدقة 344x882 - يجب أن تكون هذه القاعدة في البداية لأنها أكثر تحديدًا */
 @media (max-width: 344px) and (max-height: 882px) {
    .responsive-logo {
-       max-width: 80%; /* الشعار يشغل 80% من عرض الشاشة */
+       max-width: 80%;
    }
    .search-container {
        display: flex;
@@ -1362,9 +1361,10 @@ justify-content: start; /* الترتيب يبدأ من الأعلى */
    }
 }
 
+/* لجهاز بدقة 320x... */
 @media (max-width: 320px) {
    .responsive-logo {
-       max-width: 80%; /* الشعار يشغل 80% من عرض الشاشة */
+       max-width: 80%;
    }
    .search-container {
        display: flex;
@@ -1373,9 +1373,10 @@ justify-content: start; /* الترتيب يبدأ من الأعلى */
    }
 }
 
+/* لجهاز بدقة 360x740 */
 @media (max-width: 360px) and (max-height: 740px) {
    .responsive-logo {
-       max-width: 80%; /* الشعار يشغل 80% من عرض الشاشة */
+       max-width: 80%;
    }
    .search-container {
        display: flex;
@@ -1384,42 +1385,10 @@ justify-content: start; /* الترتيب يبدأ من الأعلى */
    }
 }
 
-@media (max-width: 390px) and (max-height: 844px) {
-   .responsive-logo {
-       max-width: 80%; /* الشعار يشغل 80% من عرض الشاشة */
-   }
-   .search-container {
-       display: flex;
-       width: 219px;
-       left: -11%;
-   }
-}
-
-@media (max-width: 412px) and (max-height: 914px) {
-   .responsive-logo {
-       max-width: 80%; /* الشعار يشغل 80% من عرض الشاشة */
-   }
-   .search-container {
-       display: flex;
-       width: 240px;
-       left: -11%;
-   }
-}
-
-@media (max-width: 412px) and (max-height: 915px) {
-   .responsive-logo {
-       max-width: 80%; /* الشعار يشغل 80% من عرض الشاشة */
-   }
-   .search-container {
-       display: flex;
-       width: 235px;
-       left: -11%;
-   }
-}
-
+/* لجهاز بدقة 375x... */
 @media (max-width: 375px) {
    .responsive-logo {
-       max-width: 80%; /* الشعار يشغل 80% من عرض الشاشة */
+       max-width: 80%;
    }
    .search-container {
        display: flex;
@@ -1428,3 +1397,38 @@ justify-content: start; /* الترتيب يبدأ من الأعلى */
    }
 }
 
+/* لجهاز بدقة 390x844 */
+@media (max-width: 390px) and (max-height: 844px) {
+   .responsive-logo {
+       max-width: 80%;
+   }
+   .search-container {
+       display: flex;
+       width: 219px;
+       left: -11%;
+   }
+}
+
+/* لجهاز بدقة 412x914 */
+@media (max-width: 412px) and (max-height: 914px) {
+   .responsive-logo {
+       max-width: 80%;
+   }
+   .search-container {
+       display: flex;
+       width: 240px;
+       left: -11%;
+   }
+}
+
+/* لجهاز بدقة 412x915 */
+@media (max-width: 412px) and (max-height: 915px) {
+   .responsive-logo {
+       max-width: 80%;
+   }
+   .search-container {
+       display: flex;
+       width: 235px;
+       left: -11%;
+   }
+}
