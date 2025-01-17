@@ -1369,3 +1369,12 @@ justify-content: start; /* الترتيب يبدأ من الأعلى */
         left: -11%;
     }
 }
+@media (max-width: 320px) {
+    .responsive-logo {
+        max-width: 80%; /* الشعار يشغل 80% من عرض الشاشة */
+    }
+    .search-container {
+        display: flex;
+        width: 180px;
+        left: -11%;
+        }
