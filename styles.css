@@ -1154,8 +1154,8 @@ header {
   }
   .search-container {
     display: flex;
-    width: 250px; /* عرض الحاوية */
-    left: -11%; /* الانتقال إلى منتصف العرض */
+      width: 50vw; /* العرض يعتمد على عرض الشاشة */
+   left: 5vw; /* تحريك الحاوية بناءً على نسبة الشاشة */
   }
   .logo {
     display: flex; /* لعرض الشعار والنص بجانب بعض */
@@ -1382,37 +1382,3 @@ justify-content: start; /* الترتيب يبدأ من الأعلى */
        left: -11%;
    }
 }
-
-@media (max-width: 375px) {
-   .responsive-logo {
-       max-width: 80%; /* الشعار يشغل 80% من عرض الشاشة */
-   }
-   .search-container {
-       display: flex;
-       width: 200px;
-       left: -11%;
-   }
-}
-
-@media (max-width: 390px) {
-   .responsive-logo {
-       max-width: 80%; /* الشعار يشغل 80% من عرض الشاشة */
-   }
-   .search-container {
-       display: flex;
-       width: 219px;
-       left: -11%;
-   }
-}
-
-@media (max-width: 412px) {
-   .responsive-logo {
-       max-width: 80%; /* الشعار يشغل 80% من عرض الشاشة */
-   }
-   .search-container {
-       display: flex;
-       width: 240px;
-       left: -11%;
-   }
-}
-
