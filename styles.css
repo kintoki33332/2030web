@@ -1346,9 +1346,10 @@ justify-content: start; /* الترتيب يبدأ من الأعلى */
 @media screen and (min-width: 931px) {
    /* الشعار في الجهة اليمنى على الشاشات الكبيرة */
    .logo {
-    order: 1;
-  }
+       order: 1;
+   }
 }
+
 @media (max-width: 320px) {
    .responsive-logo {
        max-width: 80%; /* الشعار يشغل 80% من عرض الشاشة */
@@ -1411,17 +1412,6 @@ justify-content: start; /* الترتيب يبدأ من الأعلى */
    .search-container {
        display: flex;
        width: 240px;
-       left: -11%;
-   }
-}
-
-@media (max-width: 412px) {
-   .responsive-logo {
-       max-width: 80%; /* الشعار يشغل 80% من عرض الشاشة */
-   }
-   .search-container {
-       display: flex;
-       width: 235px;
        left: -11%;
    }
 }
