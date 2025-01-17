@@ -1222,7 +1222,10 @@ header {
   /* الشعار في الجهة اليمنى على الشاشات الكبيرة */
   .logo {
    order: 1;
- }
+  }
+    .back-button.back-top {
+        display: none;
+    }
 }
 @media (max-width: 414px) {
   .responsive-logo {
