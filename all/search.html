@@ -546,7 +546,7 @@ function redirectToSearchPage() {
     const sectorFilter = document.getElementById('sector-filter') ? document.getElementById('sector-filter').value : '';
     
     if (searchQuery) {
-        const url = new URL('all/search.html', window.location.origin);
+        const url = new URL('2030web/all/search.html', window.location.origin);
         url.searchParams.append('query', searchQuery);
         if (yearFilter) url.searchParams.append('year', yearFilter);
         if (sectorFilter) url.searchParams.append('sector', sectorFilter);
