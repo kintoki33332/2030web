@@ -987,7 +987,10 @@ header {
     margin-left: 10px; /* مسافة بين الروابط */
     color: #000000; /* لون النص */
   }
-  
+   a {
+    color: blue; /* تغيير لون الروابط فقط إلى الأزرق */
+    text-decoration: none; /* إزالة الخط السفلي (اختياري) */
+  } 
   .social-link:hover {
     text-decoration: underline; /* خط تحت النص عند التمرير */
   }
