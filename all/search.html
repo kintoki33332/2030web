@@ -190,6 +190,47 @@
   transition: none !important;
 }
 }
+ /* تنسيق الفلاتر */
+ #filters {
+        display: flex;
+        gap: 15px; /* مسافة بين الفلاتر */
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    select {
+        padding: 8px 15px;
+        font-size: 16px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        transition: border-color 0.3s ease;
+        width: 163px;
+    }
+
+    select:focus {
+        border-color: #0011ff;
+        outline: none;
+    }
+
+    option {
+        padding: 10px;
+    }
+    /* تنسيق الجوال - max-width أولاً */
+    @media (max-width: 931px) {
+        #filters {
+            width: 90%; /* تقليل العرض قليلاً للجوال */
+            margin: 20px auto; /* جعل الحافة أفقية متوازية */
+        }
+    }
+
+    /* تنسيق الديسكتوب - min-width بعد الجوال */
+    @media (min-width: 932px) {
+        #filters {
+            width: 80%; /* تقليل العرض على الأجهزة الكبيرة */
+            margin: 20px auto; /* عرض محوري */
+        }
+    }
 </style>
 <body>
     <header>
@@ -252,7 +293,34 @@
             </svg>
         </button>
     </div>
+<div id="filters">
 
+        <select id="year-filter">
+            <option value="">جميع السنوات</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+        </select>
+
+        <select id="sector-filter">
+            <option value="">جميع القطاعات</option>
+            <option value="الحكومي">الحكومي</option>
+            <option value="الخاص">الخاص</option>
+            <option value="التعليمي">التعليمي</option>
+            <option value="الصناعي">الصناعي</option>
+            <option value="الطاقة">الطاقة</option>
+            <option value="النقل والخدمات اللوجستية">النقل والخدمات اللوجستية</option>
+            <option value="السياحة">السياحة</option>
+            <option value="التقنية والاتصالات">التقنية والاتصالات</option>
+            <option value="المالي">المالي</option>
+        </select>
+    </div>
     <div id="search-term" class="search-term"></div>
     <div id="search-results" class="search-results"></div>
     <button class="back-button back-regular" onclick="goBack()">الرجوع</button>
@@ -383,7 +451,119 @@ document.addEventListener('DOMContentLoaded', () => {
     item.classList.add('show');
   });
 });
+// دالة للبحث العميق داخل كائنات متعددة
+function deepSearch(contentData, searchTerm, yearFilter, sectorFilter) {
+    let results = [];
 
+    // التكرار عبر المحتوى وبحث في جميع العناصر الداخلية
+    contentData.forEach(page => {
+        // التصفية حسب السنة والقطاع
+        const matchesYear = yearFilter ? page.year == yearFilter : true;
+        const matchesSector = sectorFilter ? page.sector && page.sector.toLowerCase() == sectorFilter.toLowerCase() : true;
+
+        // إذا كان العنوان أو أي جزء من المحتوى يحتوي على الكلمة المفتاحية وكان يتوافق مع السنة والقطاع
+        if (
+            matchesYear &&
+            matchesSector &&
+            (
+                page.title.toLowerCase().includes(searchTerm) ||
+                (page.content && page.content.toLowerCase().includes(searchTerm)) ||
+                (page.sections && page.sections.some(section => section.toLowerCase().includes(searchTerm)))
+            )
+        ) {
+            let snippet = "";
+            if (page.content && page.content.toLowerCase().includes(searchTerm)) {
+                snippet = page.content.substring(page.content.toLowerCase().indexOf(searchTerm), 200) + "...";
+            } else if (page.sections) {
+                page.sections.forEach(section => {
+                    if (section.toLowerCase().includes(searchTerm)) {
+                        snippet = section.substring(section.toLowerCase().indexOf(searchTerm), 200) + "...";
+                    }
+                });
+            }
+
+            results.push(`
+                <div class="result-item">
+                    <a href="${page.url}">${page.title}</a>
+                    <p>${snippet}</p>
+                </div>
+            `);
+        }
+    });
+
+    return results;
+}
+
+// عرض نتائج البحث
+function searchResults(contentData) {
+    const searchTerm = getQueryParam('query') ? getQueryParam('query').toLowerCase() : '';
+    const yearFilter = getQueryParam('year') || '';  // تحديد yearFilter
+    const sectorFilter = getQueryParam('sector') || '';  // تحديد sectorFilter
+    
+    const searchResultsDiv = document.getElementById('search-results');
+    const searchInput = document.getElementById('search-input');
+    const searchTermDiv = document.getElementById('search-term');
+
+    // تحديث مستطيل البحث بالكلمة المدخلة
+    if (searchInput) {
+        searchInput.value = searchTerm;
+    }
+
+    if (!searchTerm) {
+        searchResultsDiv.innerHTML = '<div class="no-results">يرجى إدخال كلمة للبحث</div>';
+        return;
+    }
+
+    // البحث العميق داخل المحتوى
+    const results = deepSearch(contentData, searchTerm, yearFilter, sectorFilter);
+
+    // عرض النتائج أو رسالة "لا توجد نتائج"
+    if (results.length > 0) {
+        searchResultsDiv.innerHTML = results.join('');
+        searchTermDiv.innerHTML = ` "<strong>${searchTerm}</strong>"`;
+    } else {
+        searchResultsDiv.innerHTML = '<div class="no-results">لا توجد نتائج تطابق البحث</div>';
+    }
+}
+
+// تحميل بيانات البحث من ملف JSON
+fetch('content.json')
+    .then(response => response.json())
+    .then(data => {
+        document.addEventListener('DOMContentLoaded', () => {
+            searchResults(data);
+        });
+    })
+    .catch(error => {
+        console.error('خطأ في تحميل بيانات JSON:', error);
+    });
+
+// إعادة التوجيه إلى صفحة البحث
+function redirectToSearchPage() {
+    const searchInput = document.getElementById('search-input');
+    const searchQuery = searchInput.value.trim();
+    const yearFilter = document.getElementById('year-filter') ? document.getElementById('year-filter').value : '';
+    const sectorFilter = document.getElementById('sector-filter') ? document.getElementById('sector-filter').value : '';
+    
+    if (searchQuery) {
+        const url = new URL('all/search.html', window.location.origin);
+        url.searchParams.append('query', searchQuery);
+        if (yearFilter) url.searchParams.append('year', yearFilter);
+        if (sectorFilter) url.searchParams.append('sector', sectorFilter);
+        window.location.href = url;
+    }
+}
+
+// زر الرجوع
+function goBack() {
+    window.history.back();
+}
+
+// دالة لاستخراج القيم من URL
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
 
 
 
