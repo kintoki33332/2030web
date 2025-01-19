@@ -83,6 +83,16 @@ section {
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+  .section1 {
+    padding-top: 20px;
+    padding: 25px;
+    margin: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    background-size: cover;
+    background-position: center;  
+}
 
 /* عنوان الأقسام */
 h2 {
@@ -1142,6 +1152,26 @@ color: #000000; /* لون النص */
 text-decoration: underline; /* خط تحت النص عند التمرير */
 }
 @media screen and (max-width: 931px) {
+  /* تخصيص الأنماط */
+.main-title {
+  font-size: 2rem; /* حجم مناسب للعناوين */
+  color: #007BFF; /* اللون الأزرق */
+  text-align: center; /* محاذاة للنص في المنتصف */
+}
+.sub-title {
+  font-size: 2.5rem; /* حجم أصغر من العنوان الرئيسي */
+  color: #00a2ff; /* لون أزرق فاتح */
+  text-align: center;
+}
+.fade-in-description {
+  font-size: 1.5rem; /* حجم الخط للوصف */
+  color: #333; /* لون داكن للوصف */
+  text-align: center;
+}
+h2 {
+word-wrap: break-word; /* تقسيم الكلمات الكبيرة إلى أسطر جديدة */ 
+font-size: 2rem; /* حجم مناسب للعناوين */
+}
 h1 {
     display: none;
 }
@@ -1413,4 +1443,96 @@ z-index: 1001;       /* ضمان ظهور الزر فوق العناصر الأ�
       width: 157px;
       left: -11%;
   }
+  
+/* تخصيص الأنماط */
+.main-title {
+  font-size: 2rem; /* حجم الخط للعنوان الرئيسي */
+  color: #007BFF; /* اللون الأزرق */
+  text-align: center; /* محاذاة للنص في المنتصف */
+}
+.sub-title {
+  font-size: rem; /* حجم أصغر من العنوان الرئيسي */
+  color: #00a2ff; /* لون أزرق فاتح */
+  text-align: center;
+}
+.fade-in-description {
+  font-size: 1.5rem; /* حجم الخط للوصف */
+  color: #333; /* لون داكن للوصف */
+  text-align: center;
+}
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* الأنميشن */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* ابدأ مع تحريك خفيف للأسفل */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* الوضع النهائي */
+  }
+}
+
+/* تطبيق الأنميشن */
+.fade-in {
+  opacity: 0; /* يبدأ العنصر مخفي */
+  animation: fadeIn 1.5s ease forwards;
+  animation-delay: 0s; /* التأخير يتم تحديده لكل عنصر */
+/* التأثيرات الخاصة بالأنميشن */
+}
+.fade-in {
+  opacity: 0; /* العنصر يبدأ مختفياً */
+  animation: fadeInUp 1s ease-in-out forwards;
+}
+.fade-in-description {
+  opacity: 0;
+  animation: fadeInUp 1s ease-in-out forwards
+}
+
+/* التأخير الخاص بكل عنصر */
+.fade-in:nth-child(1) {
+  animation-delay: 0s;
+}
+.fade-in:nth-child(2) {
+  animation-delay: 0.5s;
+}
+.fade-in-description:nth-child(3) {
+  animation-delay: 0.9s;
+}
+
+@keyframes fadeInUp {
+  0% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+/* تخصيص الأنماط */
+.main-title {
+  font-size: 1.9rem; /* حجم الخط للعنوان الرئيسي */
+  color: #007BFF; /* اللون الأزرق */
+  text-align: center; /* محاذاة للنص في المنتصف */
+}
+.sub-title {
+  font-size: 1rem; /* حجم أصغر من العنوان الرئيسي */
+  color: #00a2ff; /* لون أزرق فاتح */
+  text-align: center;
+}
+.fade-in-description {
+  font-size: 1.5rem; /* حجم الخط للوصف */
+  color: #333; /* لون داكن للوصف */
+  text-align: center;
 }
