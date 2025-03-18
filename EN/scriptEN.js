@@ -142,7 +142,7 @@ function redirectToSearchPage() {
         return;
     }
 
-    window.location.href = `/EN/all.En/search.en.html?query=${encodeURIComponent(searchTerm)}`;
+    window.location.href = `/2030web/EN/all.En/search.en.html?query=${encodeURIComponent(searchTerm)}`;
 }
 // حدد مربع الإدخال
 const searchInput = document.getElementById('search');
