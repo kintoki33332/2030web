@@ -412,7 +412,7 @@ window.onload = function() {
 function redirectToSearchPage() {
     const searchTerm = document.getElementById('search-input').value;
     if (searchTerm) {
-        window.location.href = `all/search.html?query=${searchTerm}`;
+        window.location.href = `/2030web/all/search.html?query=${searchTerm}`;
     }
 }
 
@@ -549,7 +549,7 @@ function redirectToSearchPage() {
     const sectorFilter = document.getElementById('sector-filter') ? document.getElementById('sector-filter').value : '';
     
     if (searchQuery) {
-        const url = new URL('all.En/search.en.html', window.location.origin);
+        const url = new URL('/2030web/all.En/search.en.html', window.location.origin);
         url.searchParams.append('query', searchQuery);
         if (yearFilter) url.searchParams.append('year', yearFilter);
         if (sectorFilter) url.searchParams.append('sector', sectorFilter);
