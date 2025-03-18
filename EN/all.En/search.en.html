@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* حاوية محرك البحث */
+    .search-container {
+        max-width: 600px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        position: relative;
+        margin-top: 30px; /* المسافة بين نتائج البحث ومحرك البحث */
+    }
+
+    /* تنسيق محرك البحث */
+    .search-container input[type="text"] {
+        width: 100%;
+        padding: 12px 15px;
+        font-size: 18px; /* زيادة حجم الخط في مربع البحث */
+        border: 2px solid #ccc;
+        border-radius: 25px;
+        outline: none;
+    }
+
+    .search-container button {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .search-container button svg {
+        width: 20px;
+        height: 20px;
+        fill: #333;
+    }
+
+    /* نتائج البحث */
+    .search-results {
+        margin-top: 30px;
+        padding: 30px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        font-size: 20px; /* زيادة حجم الخط للنتائج */
+    }
+
+    .result-item {
+        margin-bottom: 20px;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        transition: background-color 0.3s ease;
+    }
+
+    .result-item:hover {
+        background-color: #e9f7ff;
+    }
+
+    .result-item a {
+        font-size: 20px;
+        font-weight: bold;
+        color: #007BFF;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    .result-item p {
+        color: #555;
+        font-size: 16px;
+        margin-top: 5px;
+    }
+
+    /* حالة عدم وجود نتائج */
+    .no-results {
+        color: #FF0000;
+        font-size: 20px;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    /* زر الرجوع */
+    .back-button {
+        background-color: #007BFF;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        display: block;
+        margin: 30px auto;
+    }
+
+    .back-button:hover {
+        background-color: #0056b3;
+    }
+    
+    h2 {
+        font-size: 64px; /* حجم الخط */
+        font-weight: bold; /* جعل الخط عريض */
+        color: #000000; /* لون الخط */
+        text-align: center; /* محاذاة النص في الوسط */
+        margin-top: 20px; /* مسافة من الأعلى */
+        margin-bottom: 20px; /* مسافة من الأسفل */
+        font-family: 'Arial', sans-serif; /* تحديد نوع الخط */
+    }
+
+    .search-term {
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+        margin-top: 20px;
+        text-align: center;
+    }
+.hamburger-menu {
+  display: flex;
+  cursor: pointer;
+  top: 33px;   /* تحديد المسافة من الأعلى */
+  right: 4px; /* تحديد المسافة من اليمين */
+}
+
+/* إخفاء علامة الهمبرغر في الأجهزة المكتبية */
+@media screen and (min-width: 931px) {
+    .hamburger-menu {
+        display: none;
+    }
+    .back-button.back-top {
+        display: none;
+    }
+}
+/* إخفاء زر "الرجوع" فقط على شاشات الجوال */
+@media (max-width: 931px) {
+    .back-button.back-regular {
+        display: none;
+    }
+    /* حاوية محرك البحث */
+    .search-container {
+        max-width: 600px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        position: relative;
+        margin-top: 30px; /* المسافة بين نتائج البحث ومحرك البحث */
+        transform: translateX(18%); /* يحرك العنصر 10% من عرضه */
+    }
+    @keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* العناصر الأساسية */
+.result-item {
+  opacity: 0; /* تبدأ العناصر مخفية */
+  transform: translateY(20px); /* تتحرك قليلاً للأسفل */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* العناصر المرئية */
+.result-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* أول 5 عناصر تظهر بدون حركة */
+.result-item.first-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: none !important;
+}
+/* أول 5 عناصر تظهر فورًا */
+.result-item:nth-child(-n+5) {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: none !important;
+}
+}
+ /* تنسيق الفلاتر */
+ #filters {
+        display: flex;
+        gap: 15px; /* مسافة بين الفلاتر */
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    select {
+        padding: 8px 15px;
+        font-size: 16px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        transition: border-color 0.3s ease;
+        width: 163px;
+    }
+
+    select:focus {
+        border-color: #0011ff;
+        outline: none;
+    }
+
+    option {
+        padding: 10px;
+    }
+    /* تنسيق الجوال - max-width أولاً */
+    @media (max-width: 931px) {
+        #filters {
+            width: 90%; /* تقليل العرض قليلاً للجوال */
+            margin: 20px auto; /* جعل الحافة أفقية متوازية */
+        }
+    }
+
+    /* تنسيق الديسكتوب - min-width بعد الجوال */
+    @media (min-width: 932px) {
+        #filters {
+            width: 80%; /* تقليل العرض على الأجهزة الكبيرة */
+            margin: 20px auto; /* عرض محوري */
+        }
+    }
+
+</style>
+<body>
+    <header>
+            <h1>Achievements of the Kingdom of Saudi Arabia 2030</h1>
+        </div>
+        <nav>
+            <ul class="navbar">
+                </li>
+                <li class="menu-item">
+                    <a href="#personality">Achievements of the Kingdom of Saudi Arabia 2030</a>
+                    <p class="description">وصف لأبرز الإنجازات الوطنية لعام 2024.</p>
+                </li>
+                <li class="menu-item">
+                    <a href="#gallery">السنوات القادمة</a>
+                    <p class="description">وصف عن المعرض.</p>
+                </li>
+                <li class="menu-item">
+                    <a href="/EN/all.En/About.en.html">About</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#contact">Contact Us</a>
+                    <p class="description">
+                        <a style="color: black;" href="https://www.instagram.com/moe_eeh_12_1093/" target="_blank">انستغرام</a>
+                        <a style="color: black;" href="https://x.com/MOE_EEH_12_1093" target="_blank">أكس</a>
+                    </p>
+                    <li class="menu-item">
+                        <a href="/EN/index.en.html">Back to Home</a>
+                        </p>                    
+                    </li>  
+                <li class="hamburger-menu" id="hamburger">
+                        <div class="hamburger-icon">
+                            <span class="burger__bun" data-v-ccf9b649=""></span>
+                            <span class="burger__meat" data-v-ccf9b649=""></span>
+                            <span class="burger__bun" data-v-ccf9b649=""></span>
+                        </div>
+                        <!-- القائمة الجانبية -->
+    <div class="off-screen-menu">
+        <!-- زر الإغلاق X -->
+        <div class="close-menu" id="close-menu">X</div>
+        <ul>
+            <li><a href="/EN/index.en.html">Back to Home</a>
+            <li><a href="/EN/all.En/About.en.html">About</a>
+        </ul>
+        <!-- ربط ملف جافا سكريبت -->
+<script src="/js-burger.js"></script>
+                </li>
+                <div class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/ar/thumb/f/f5/Saudi_Vision_2030_logo.svg/1200px-Saudi_Vision_2030_logo.svg.png">
+            </ul>
+        </nav>
+    </header>
+
+    <h2>Search Results</h2>
+
+    <div class="search-container">
+        <input type="text" id="search-input" value="" placeholder="Search..">
+        <button class="search-button" onclick="redirectToSearchPage()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M10 2a8 8 0 106.32 13.906l4.387 4.387a1 1 0 001.414-1.414l-4.387-4.387A8 8 0 0010 2zm0 2a6 6 0 110 12A6 6 0 0110 4z"/>
+            </svg>
+        </button>
+    </div>
+    <div id="filters">
+
+        <select id="year-filter">
+            <option value="">All years</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+        </select>
+
+        <select id="sector-filter">
+            <option value="">All Sectors</option>
+            <option value="الحكومي">Government</option>
+            <option value="الخاص">Private</option>
+            <option value="الصحي">Health</option>
+            <option value="التعليمي">Education</option>
+            <option value="الصناعي">Industrial</option>
+            <option value="الطاقة">Energy</option>
+            <option value="النقل والخدمات اللوجستية">Transport & Logistics</option>
+            <option value="السياحة">Tourism</option>
+            <option value="التقنية والاتصالات">Technology & Communications</option>
+            <option value="المالي">Finance</option>
+        </select>
+    </div>
+    <div id="search-term" class="search-term"></div>
+    <div id="search-results" class="search-results"></div>
+    <button class="back-button back-regular" onclick="goBack()">Back</button>
+    <button class="back-button back-top" onclick="goBack()">Back to Top</button>
+</main>
+    <footer id="footer">
+        <p style="font-size: large;">
+            Contact Us
+        </p>
+        <div></div>
+        <ul class="social-links">
+            <li><a id="twitter-link" href="https://x.com/MOE_EEH_12_1093" target="_blank" class="social-icon twitter">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/X_logo_2023.svg" alt="Twitter" class="social-img">
+              </a></li>
+            <li><a id="instagram-link" href="https://www.instagram.com/moe_eeh_12_1093/" target="_blank" class="social-icon instagram">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram" class="social-img">
+              </a></li>
+          </ul>
+        <p>&copy; 2025 Vision 2030 - Saudi Arabia</p>
+    </footer>
+    <script>
+       // جلب الكلمة المفتاحية من URL
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
+// البحث وعرض النتائج
+function searchResults(contentData) {
+    const searchTerm = getQueryParam('query') ? getQueryParam('query').toLowerCase() : '';
+    const searchResultsDiv = document.getElementById('search-results');
+    const searchInput = document.getElementById('search-input');
+    const searchTermDiv = document.getElementById('search-term');
+
+    if (!searchTerm) {
+        searchResultsDiv.innerHTML = '<div class="no-results">يرجى إدخال كلمة للبحث</div>';
+        return;
+    }
+
+    // تحديث مستطيل البحث بالكلمة المدخلة
+    searchInput.value = searchTerm;
+
+    let results = [];
+
+    // البحث في البيانات
+    contentData.forEach(page => {
+        if (page.title.toLowerCase().includes(searchTerm) || page.content.toLowerCase().includes(searchTerm)) {
+            let snippet = page.content.toLowerCase().includes(searchTerm)
+                ? page.content.substring(page.content.toLowerCase().indexOf(searchTerm), 200) + "..."
+                : "";
+
+            results.push(`
+                <div class="result-item">
+                    <a href="${page.url}?query=${searchTerm}">${page.title}</a>
+                    <p>${snippet}</p>
+                </div>
+            `);
+        }
+    });
+
+    // إذا كانت هناك نتائج
+    if (results.length > 0) {
+        searchResultsDiv.innerHTML = results.join('');
+    } else {
+        searchResultsDiv.innerHTML = '<div class="no-results">لا توجد نتائج لبحثك</div>';
+    }
+
+    // عرض الكلمة المفتوحة تحت نتائج البحث
+    searchTermDiv.innerHTML = `"${searchTerm}"`;
+}
+
+// تحميل البيانات وعرض النتائج عند تحميل الصفحة
+window.onload = function() {
+    const searchTerm = getQueryParam('query'); // جلب الكلمة من URL فقط
+    if (searchTerm) {
+        document.getElementById('search-input').value = searchTerm; // تعيين الكلمة في مربع البحث
+    }
+
+    fetch('content.json')  // تأكد من المسار الصحيح هنا
+        .then(response => response.json())
+        .then(data => searchResults(data))
+        .catch(error => console.error('Error loading content:', error));
+};
+
+// إعادة التوجيه إلى صفحة البحث مع الكلمة المفتاحية في الرابط
+function redirectToSearchPage() {
+    const searchTerm = document.getElementById('search-input').value;
+    if (searchTerm) {
+        window.location.href = `all/search.html?query=${searchTerm}`;
+    }
+}
+
+// إضافة وظيفة البحث عند الضغط على Enter
+document.getElementById('search-input').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        redirectToSearchPage();
+    }
+});
+function goBack() {
+    if (window.innerWidth <= 768) {  // التحقق من حجم الشاشة (موبايل)
+        window.scrollTo(0, 0);  // التمرير إلى أعلى الصفحة
+    } else {
+        window.history.back();  // العودة إلى الصفحة السابقة على الأجهزة الأخرى
+    }
+}
+// وظيفة لإظهار العناصر داخل الشاشة أثناء التمرير
+function showOnScroll() {
+  const items = document.querySelectorAll('.result-item:not(.first-visible)');
+  const windowHeight = window.innerHeight;
+
+  items.forEach((item) => {
+    const itemTop = item.getBoundingClientRect().top;
+
+    // إذا كان العنصر مرئيًا داخل الشاشة
+    if (itemTop < windowHeight - 50) {
+      item.classList.add('show');
+    }
+  });
+}
+
+// ضمان تحديث النتائج عند التمرير
+window.addEventListener('scroll', showOnScroll);
+
+// عرض أول 5 عناصر مباشرة عند التحميل
+document.addEventListener('DOMContentLoaded', () => {
+  const firstItems = document.querySelectorAll('.result-item.first-visible');
+  firstItems.forEach((item) => {
+    item.classList.add('show');
+  });
+});
+// دالة للبحث العميق داخل كائنات متعددة
+function deepSearch(contentData, searchTerm, yearFilter, sectorFilter) {
+    let results = [];
+
+    // التكرار عبر المحتوى وبحث في جميع العناصر الداخلية
+    contentData.forEach(page => {
+        // التصفية حسب السنة والقطاع
+        const matchesYear = yearFilter ? page.year == yearFilter : true;
+        const matchesSector = sectorFilter ? page.sector && page.sector.toLowerCase() == sectorFilter.toLowerCase() : true;
+
+        // إذا كان العنوان أو أي جزء من المحتوى يحتوي على الكلمة المفتاحية وكان يتوافق مع السنة والقطاع
+        if (
+            matchesYear &&
+            matchesSector &&
+            (
+                page.title.toLowerCase().includes(searchTerm) ||
+                (page.content && page.content.toLowerCase().includes(searchTerm)) ||
+                (page.sections && page.sections.some(section => section.toLowerCase().includes(searchTerm)))
+            )
+        ) {
+            let snippet = "";
+            if (page.content && page.content.toLowerCase().includes(searchTerm)) {
+                snippet = page.content.substring(page.content.toLowerCase().indexOf(searchTerm), 200) + "...";
+            } else if (page.sections) {
+                page.sections.forEach(section => {
+                    if (section.toLowerCase().includes(searchTerm)) {
+                        snippet = section.substring(section.toLowerCase().indexOf(searchTerm), 200) + "...";
+                    }
+                });
+            }
+
+            results.push(`
+                <div class="result-item">
+                    <a href="${page.url}">${page.title}</a>
+                    <p>${snippet}</p>
+                </div>
+            `);
+        }
+    });
+
+    return results;
+}
+
+// عرض نتائج البحث
+function searchResults(contentData) {
+    const searchTerm = getQueryParam('query') ? getQueryParam('query').toLowerCase() : '';
+    const yearFilter = getQueryParam('year') || '';  // تحديد yearFilter
+    const sectorFilter = getQueryParam('sector') || '';  // تحديد sectorFilter
+    
+    const searchResultsDiv = document.getElementById('search-results');
+    const searchInput = document.getElementById('search-input');
+    const searchTermDiv = document.getElementById('search-term');
+
+    // تحديث مستطيل البحث بالكلمة المدخلة
+    if (searchInput) {
+        searchInput.value = searchTerm;
+    }
+
+    if (!searchTerm) {
+        searchResultsDiv.innerHTML = '<div class="no-results">يرجى إدخال كلمة للبحث</div>';
+        return;
+    }
+
+    // البحث العميق داخل المحتوى
+    const results = deepSearch(contentData, searchTerm, yearFilter, sectorFilter);
+
+    // عرض النتائج أو رسالة "لا توجد نتائج"
+    if (results.length > 0) {
+        searchResultsDiv.innerHTML = results.join('');
+        searchTermDiv.innerHTML = ` "<strong>${searchTerm}</strong>"`;
+    } else {
+        searchResultsDiv.innerHTML = '<div class="no-results">لا توجد نتائج تطابق البحث</div>';
+    }
+}
+
+// تحميل بيانات البحث من ملف JSON
+fetch('content.json')
+    .then(response => response.json())
+    .then(data => {
+        document.addEventListener('DOMContentLoaded', () => {
+            searchResults(data);
+        });
+    })
+    .catch(error => {
+        console.error('خطأ في تحميل بيانات JSON:', error);
+    });
+
+// إعادة التوجيه إلى صفحة البحث
+function redirectToSearchPage() {
+    const searchInput = document.getElementById('search-input');
+    const searchQuery = searchInput.value.trim();
+    const yearFilter = document.getElementById('year-filter') ? document.getElementById('year-filter').value : '';
+    const sectorFilter = document.getElementById('sector-filter') ? document.getElementById('sector-filter').value : '';
+    
+    if (searchQuery) {
+        const url = new URL('all.En/search.en.html', window.location.origin);
+        url.searchParams.append('query', searchQuery);
+        if (yearFilter) url.searchParams.append('year', yearFilter);
+        if (sectorFilter) url.searchParams.append('sector', sectorFilter);
+        window.location.href = url;
+    }
+}
+
+// دالة لاستخراج القيم من URL
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
+
+
+
+        
+    </script>
+</body>
+</html>
