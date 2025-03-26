@@ -1288,6 +1288,26 @@ z-index: 1001;       /* ضمان ظهور الزر فوق العناصر الأ�
  order: 1;
 }
 }
+@media (max-width: 430px) {
+  .responsive-logo {
+      max-width: 80%; /* الشعار يشغل 80% من عرض الشاشة */
+  }
+  .search-container {
+      display: flex;
+      width: 240px;
+      left: -25%;
+  }
+}
+@media (max-width: 425px) {
+  .responsive-logo {
+      max-width: 80%; /* الشعار يشغل 80% من عرض الشاشة */
+  }
+  .search-container {
+      display: flex;
+      width: 240px;
+      left: -25%;
+  }
+}
 @media (max-width: 414px) {
 .responsive-logo {
     max-width: 80%; /* الشعار يشغل 80% من عرض الشاشة */
@@ -1295,7 +1315,7 @@ z-index: 1001;       /* ضمان ظهور الزر فوق العناصر الأ�
 .search-container {
     display: flex;
     width: 240px;
-    left: -11%;
+    left: -22%;
 }
 }
 
@@ -1306,7 +1326,7 @@ z-index: 1001;       /* ضمان ظهور الزر فوق العناصر الأ�
 .search-container {
     display: flex;
     width: 218px;
-    left: -11%;
+    left: -24%;
 }
 }
 
@@ -1317,7 +1337,7 @@ z-index: 1001;       /* ضمان ظهور الزر فوق العناصر الأ�
 .search-container {
     display: flex;
     width: 208px;
-    left: -11%;
+    left: -24%;
 }
 select {
   padding: 8px 15px;
@@ -1337,7 +1357,7 @@ select {
 .search-container {
     display: flex;
     width: 193px;
-    left: -11%;
+    left: -24%;
 }
 }
 
@@ -1348,7 +1368,7 @@ select {
 .search-container {
     display: flex;
     width: 180px;
-    left: -11%;
+    left: -26%;
 }
 }
 
