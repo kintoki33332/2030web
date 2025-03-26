@@ -1427,7 +1427,7 @@ z-index: 1001;       /* ضمان ظهور الزر فوق العناصر الأ�
   .search-container {
       display: flex;
       width: 218px;
-      left: -30%;
+      left: -26%;
   }
 }
 
